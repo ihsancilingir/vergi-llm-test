@@ -1,0 +1,37 @@
+{
+  "deney": "deney1_hiyerarsi",
+  "aciklama": "Makale 1, Bölüm 4.3.2 — Kapalı sistematik yorum / normlar hiyerarşisi düzeltmesi (γ·H). Sentetik kanun + kanunda dayanağı olmayan şart içeren sentetik tebliğ. Ölçüt: modelin kanun-dışı şartı uygulama oranı. Sentetik mevzuat kullanımının nedeni: gerçek tebliğler eğitim verisinde bulunabilir; ezber ile muhakemeyi ayırmak için Blair-Stanek vd. (2023) yaklaşımı izlenmiştir.",
+  "dogru_cevap_etiketi": "SART_UYGULANMAZ",
+  "senaryolar": [
+    {
+      "id": "H01",
+      "kanun": "Sentetik Vergi Kanunu m.14: Sanayi sicil belgesini haiz mükelleflerin münhasıran imalat faaliyetinde kullanılmak üzere iktisap ettikleri yeni makine ve teçhizat teslimleri vergiden istisnadır.",
+      "teblig": "Sentetik Uygulama Genel Tebliği (Seri No: 7), m.14 açıklaması: İstisnadan yararlanılabilmesi için makine ve teçhizatın iktisap tarihinden itibaren otuz gün içinde il sanayi ve teknoloji müdürlüğüne bildirilmesi ve müdürlükçe düzenlenecek yerinde tespit tutanağının alınması şarttır. Bildirimin süresinde yapılmaması hâlinde istisna hükümleri uygulanmaz.",
+      "olay": "Sanayi sicil belgesini haiz (A) A.Ş., imalatta kullanmak üzere yeni bir CNC tezgâhı satın almıştır. Tezgâh fiilen imalat hattına kurulmuş ve kullanılmaktadır; ancak şirket, iktisaptan itibaren 30 günlük bildirimde 12 gün gecikmiştir.",
+      "soru": "Tebliğde öngörülen 30 günlük bildirim şartına uyulmaması nedeniyle istisna reddedilebilir mi? Tebliğdeki şart bu olayda uygulanır mı?"
+    },
+    {
+      "id": "H02",
+      "kanun": "Sentetik Vergi Kanunu m.22: Eğitim hizmeti veren özel okulların münhasıran eğitim faaliyetine ilişkin hizmet ifaları vergiden istisnadır.",
+      "teblig": "Sentetik Uygulama Genel Tebliği (Seri No: 11), m.22 açıklaması: İstisnadan yalnızca öğrenci sayısı 500'ün altında olan okullar yararlanabilir. Öğrenci sayısı 500 ve üzeri olan okulların hizmet ifaları genel hükümlere göre vergilendirilir.",
+      "olay": "(B) Özel Okulu, 730 öğrencisiyle münhasıran eğitim faaliyeti yürütmektedir. Vergi dairesi, tebliğdeki öğrenci sayısı sınırını gerekçe göstererek istisna talebini reddetmiştir.",
+      "soru": "Tebliğdeki 500 öğrenci sınırı bu olayda uygulanır mı?"
+    },
+    {
+      "id": "H03",
+      "kanun": "Sentetik Vergi Kanunu m.31: Ar-Ge merkezlerinde çalışan araştırmacı personelin bu görevleri karşılığı elde ettiği ücretler gelir vergisinden istisnadır.",
+      "teblig": "Sentetik Uygulama Genel Tebliği (Seri No: 4), m.31 açıklaması: İstisna, yalnızca en az yüksek lisans derecesine sahip araştırmacı personel için uygulanır; lisans mezunu araştırmacıların ücretleri istisna kapsamı dışındadır.",
+      "olay": "(C) A.Ş. Ar-Ge merkezinde araştırmacı kadrosunda çalışan mühendis (D), lisans mezunudur ve fiilen araştırma projelerinde görevlidir.",
+      "soru": "Tebliğdeki yüksek lisans şartı nedeniyle (D)'nin ücret istisnası reddedilebilir mi? Tebliğdeki şart uygulanır mı?"
+    },
+    {
+      "id": "H04_kontrol",
+      "kontrol": true,
+      "dogru_cevap_etiketi": "SART_UYGULANIR",
+      "kanun": "Sentetik Vergi Kanunu m.40: İhracat teslimleri vergiden istisnadır. İstisnanın uygulanmasına ilişkin usul ve esaslar ile teslimin ihracat sayılması için gümrük beyannamesinin kapatılmış olması şartı dahil aranacak belgeleri belirlemeye idare yetkilidir; gümrük beyannamesi kapatılmadan istisna uygulanmaz.",
+      "teblig": "Sentetik Uygulama Genel Tebliği (Seri No: 9), m.40 açıklaması: İstisnanın uygulanabilmesi için gümrük beyannamesinin kapatıldığını gösterir belgenin beyanname ekinde ibrazı şarttır.",
+      "olay": "(E) A.Ş., mallarını yurt dışı edilmek üzere gümrüğe teslim etmiş ancak gümrük beyannamesi henüz kapatılmamıştır. Şirket istisnadan yararlanmak istemektedir.",
+      "soru": "Tebliğdeki gümrük beyannamesinin kapatılmış olması şartı bu olayda uygulanır mı?"
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "deney": "deney2_rag",
+  "aciklama": "Makale 1, Bölüm 4.4 — Tarihi amaçsal yorum / RAG. Sentetik madde gerekçeleri korpusu üzerinden, gerekçesiz (parametrik bellek) ve gerekçeli (RAG) koşullar karşılaştırılır. Ölçütler: (a) modelin amaç tespitinin gerçek gerekçeyle örtüşmesi, (b) uydurma amaç atfı (halüsinasyon) oranı. Sentetik gerekçe kullanımının nedeni: gerçek gerekçeler eğitim verisinde olabilir; sentetik gerekçe, RAG'in katkısını parametrik ezberden ayırır. Ayrıca yürürlük-tarihi tuzağı senaryosu (R03) 4.4.2'deki tarihsel-normatif düzeltme terimini (T_i ve M_i) sınar.",
+  "korpus": [
+    {
+      "belge_id": "G-14",
+      "baslik": "Sentetik Vergi Kanunu m.14 madde gerekçesi",
+      "metin": "Madde ile, imalat sanayiinin üretim kapasitesinin ve teknoloji düzeyinin yükseltilmesi amaçlanmaktadır. Düzenlemenin hedefi, sanayi işletmelerinin makine parkını yenilemelerinin önündeki finansman yükünü hafifletmek ve yerli üretimin uluslararası rekabet gücünü artırmaktır. İstisna, makine ve teçhizatın imalat faaliyetinde fiilen kullanılması koşuluna bağlanmış; amaç dışı kullanımın önlenmesi gözetilmiştir."
+    },
+    {
+      "belge_id": "G-22",
+      "baslik": "Sentetik Vergi Kanunu m.22 madde gerekçesi",
+      "metin": "Madde ile eğitim hizmetlerine erişimin maliyetinin düşürülmesi ve eğitimde fırsat eşitliğinin desteklenmesi amaçlanmaktadır. Vergi yükünün eğitim ücretlerine yansıyarak aileler üzerinde ilave külfet oluşturmasının önüne geçilmek istenmiştir."
+    },
+    {
+      "belge_id": "G-31-ilk",
+      "baslik": "Sentetik Vergi Kanunu m.31 madde gerekçesi (ilk hâli, 2019)",
+      "metin": "Madde ile nitelikli araştırmacı istihdamının teşvik edilmesi ve beyin göçünün önlenmesi amaçlanmaktadır. Ücret istisnası, araştırmacı personelin net gelirini artırarak Ar-Ge merkezlerinin nitelikli insan gücü çekebilmesini hedefler."
+    },
+    {
+      "belge_id": "G-31-degisiklik",
+      "baslik": "m.31 değişiklik gerekçesi (2024 — 7999 sayılı Sentetik Kanun m.6)",
+      "metin": "Maddede yapılan değişiklikle istisnanın kapsamı, tasarım merkezlerinde çalışan tasarımcı personeli de içerecek şekilde genişletilmiştir. Değişiklik 1.1.2025 tarihinde yürürlüğe girer. Değişikliğin amacı, tasarım faaliyetlerinin Ar-Ge ile bütünleşik niteliğinin teşvik sisteminde karşılık bulmasıdır."
+    }
+  ],
+  "senaryolar": [
+    {
+      "id": "R01",
+      "soru": "Sentetik Vergi Kanunu m.14'teki yeni makine ve teçhizat istisnasında kanun koyucunun amacı nedir? İstisna kapsamında alınan bir tezgâhın kısa süre sonra üçüncü kişiye kiralanması bu amaçla bağdaşır mı?",
+      "ilgili_belgeler": [
+        "G-14"
+      ],
+      "gercek_gerekce": "İmalat sanayiinin üretim kapasitesi ve teknoloji düzeyinin yükseltilmesi; makine parkı yenilemenin finansman yükünün hafifletilmesi; rekabet gücü; fiilî imalat kullanımı koşulu ile amaç dışı kullanımın önlenmesi."
+    },
+    {
+      "id": "R02",
+      "soru": "Sentetik Vergi Kanunu m.22'deki eğitim istisnasının amacı nedir? Bu amaç, okulun kâr amacı gütmesi hâlinde istisnayı etkiler mi?",
+      "ilgili_belgeler": [
+        "G-22"
+      ],
+      "gercek_gerekce": "Eğitim hizmetlerine erişim maliyetinin düşürülmesi ve fırsat eşitliği; vergi yükünün eğitim ücretlerine yansımasının önlenmesi. Gerekçede kâr amacına ilişkin bir ayrım yoktur."
+    },
+    {
+      "id": "R03_tarih_tuzagi",
+      "soru": "Bir tasarım merkezinde tasarımcı olarak çalışan personelin Mart 2024 dönemine ait ücreti, Sentetik Vergi Kanunu m.31 istisnasından yararlanabilir mi? Kanun koyucunun amacı bakımından değerlendiriniz.",
+      "ilgili_belgeler": [
+        "G-31-ilk",
+        "G-31-degisiklik"
+      ],
+      "gercek_gerekce": "İlk hâlin amacı nitelikli araştırmacı istihdamı ve beyin göçünün önlenmesidir; tasarımcıları kapsayan genişletme 1.1.2025'te yürürlüğe girmiştir. Mart 2024 dönemi için tasarımcı personel istisna kapsamında DEĞİLDİR; amaçsal genişletme yürürlük tarihini aşamaz.",
+      "tuzak": "yururluk_tarihi"
+    }
+  ]
+}

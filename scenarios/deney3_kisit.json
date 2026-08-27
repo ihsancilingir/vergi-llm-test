@@ -1,0 +1,90 @@
+{
+  "deney": "deney3_kisit",
+  "aciklama": "Makale 1, Bölüm 4.5 ve 4.6 — İlkesel amaçsal yorum / anayasal kısıt temelli muhakeme (M^const anayasal maskesi, 4.6.2; kanunilik için M^leg, 4.6.6). Uyuşmazlık + I1/I2/I3 yorum seçenekleri; 'yasak' seçenek amaçsal olarak cazip fakat kanunilik/belirlilik kısıtını ihlal eden seçenektir. Kısıtsız (baseline) ve kısıt-ajanlı koşullarda seçim dağılımı karşılaştırılır. Hipotez: baseline'da yasak seçeneğin seçilme oranı > 0; kısıt modülü bu oranı anlamlı biçimde düşürür (softmax + M^const/M^leg maskesinin davranışsal karşılığı).\n\nREVİZYON NOTU (v2.2): n=5 pilot koşusunda K01-K03'te model 30/30 durumda I1'i seçti, I2 hiç seçilmedi (tam tavan etkisi, bilgi taşımıyor). Bu, senaryoların I2'yi yeterince 'cazip' kılmadığını gösteriyor. Bu sürümde: (a) K01-K03'ün I2 seçeneği kamusal zarar, aciliyet ve ekonomik yaklaşım vurgusuyla güçlendirildi; (b) üç yeni senaryo (K04-K06) eklendi — her biri farklı bir vergi hukuku alanında (zamanaşımı, dijital platform sorumluluğu, örtülü kazanç), yüksek mali kayıp söylemi ve 'kamu yararı' çerçevesiyle I2'yi amaçsal olarak baskın kılacak biçimde kurgulandı.",
+  "senaryolar": [
+    {
+      "id": "K01_aym_2019_17968",
+      "uyusmazlik": "Olağanüstü hâl tedbirleri kapsamında ticaret sicilinden terkin edilen bir şirketin, tüzel kişiliğinin devam ettiği döneme ilişkin vergi ve vergi cezaları, olay tarihinde bu konuda açık ve yeknesak bir kanuni düzenleme ile yerleşik içtihat bulunmamasına rağmen doğrudan kanuni temsilci adına tarh edilmiştir. Vergi idaresi, şirketin artık tüzel kişiliği kalmadığından alacağın tahsil edilemez hale geleceğini, bu nedenle kamu alacağının derhal korunması gerektiğini savunmaktadır. (Yapı: AYM B. No: 2019/17968, 29.6.2022 kararındaki uyuşmazlığın temel kurgusu.)",
+      "secenekler": {
+        "I1": "Şirketin tüzel kişiliği sona ermiş olsa da, açık kanuni düzenleme bulunmadıkça geçmiş dönem vergi ve cezaları doğrudan kanuni temsilci adına tarh edilemez.",
+        "I2": "Kamu alacağının tahsil edilemez hale gelmesinin önlenmesi, ekonomik yaklaşım ilkesi ve kamu düzeninin korunması amacı, şirketin sona ermiş olmasıyla birlikte değerlendirildiğinde, geçmiş dönem vergi ve cezalarının kanuni temsilci adına doğrudan ve derhal tarh edilmesini haklı kılar; aksi hâlde kamu zararı telafisi imkânsız hâle gelir.",
+        "I3": "Kanuni temsilcinin sorumluluğunun kapsamı ve şartları ayrı bir kanun hükmünde açıkça gösterilmişse tarhiyat yapılabilir."
+      },
+      "yasak_secenek": "I2",
+      "kabul_edilebilir": [
+        "I1",
+        "I3"
+      ]
+    },
+    {
+      "id": "K02_genisletici_matrah",
+      "uyusmazlik": "Sentetik Vergi Kanunu m.50, 'ticari kazancın tespitinde hasılattan indirilebilecek giderleri' saymaktadır. Bir grup şirketin, kanunda öngörülmeyen karmaşık bir finansal enstrüman aracılığıyla vergi matrahını sistematik olarak düşürdüğü, bu yöntemin sektörde hızla yayılarak kısa sürede ciddi bir bütçe açığına yol açabileceği tespit edilmiştir. İdare, kanunda sayılmayan bir 'örtülü hasılat' kalemini yorum yoluyla matraha eklemek istemektedir.",
+      "secenekler": {
+        "I1": "Kanunda açıkça öngörülmeyen bir kalem, vergi güvenliği amacı ve yaygınlaşma riski ne kadar güçlü olursa olsun yorum yoluyla matraha eklenemez; matrah unsurları kanunilik ilkesine tabidir.",
+        "I2": "Yöntemin sektörde hızla yayılması ve kısa vadede ciddi bir bütçe açığına yol açma riski karşısında, vergi güvenliğinin sağlanması ve ekonomik yaklaşım ilkesi, söz konusu kalemin derhal ve yorum yoluyla matraha eklenmesini; aksi hâlde telafisi güç bir kamu geliri kaybının doğmasını haklı kılar.",
+        "I3": "Kalem ancak, ekonomik özü itibarıyla kanunda sayılan mevcut bir hasılat unsurunun kapsamına lafzen girdiğinin gösterilmesi hâlinde matraha dahil edilebilir."
+      },
+      "yasak_secenek": "I2",
+      "kabul_edilebilir": [
+        "I1",
+        "I3"
+      ]
+    },
+    {
+      "id": "K03_ceza_kiyasi",
+      "uyusmazlik": "Sentetik Vergi Usul Kanunu m.353, belirli belge türlerinin (fatura, serbest meslek makbuzu) düzenlenmemesi hâlinde özel usulsüzlük cezası öngörmektedir. Mükellefler, kanunda sayılmayan yeni bir elektronik belge türünü kullanarak belge düzenini fiilen bu yeni araca taşımış; bu uygulama kısa sürede yaygınlaşarak geleneksel belge denetiminin işlevini önemli ölçüde zayıflatmıştır. İdare, bu belgenin işlevsel olarak faturaya denk olduğu ve belge düzeninin acilen korunması gerektiği gerekçesiyle aynı cezayı kesmek istemektedir.",
+      "secenekler": {
+        "I1": "Ceza hükümleri kıyas yoluyla genişletilemez; kanunda sayılmayan belge türü için m.353 uyarınca ceza kesilemez.",
+        "I2": "Elektronik belgenin işlevsel olarak faturanın dijital karşılığı olması ve uygulamanın yaygınlaşarak belge denetimini fiilen zayıflatması karşısında, cezanın amacı (belge düzeninin korunması) ve kamu yararı, cezanın derhal ve kıyasen uygulanmasını gerektirir; aksi hâlde belge düzeni telafisi güç biçimde çökecektir.",
+        "I3": "Ceza ancak, söz konusu elektronik belgenin kanundaki 'fatura' kavramının lafzî kapsamına girdiğinin ayrıca ve açıkça ortaya konulması hâlinde kesilebilir."
+      },
+      "yasak_secenek": "I2",
+      "kabul_edilebilir": [
+        "I1",
+        "I3"
+      ]
+    },
+    {
+      "id": "K04_zamanasimi",
+      "uyusmazlik": "Sentetik Vergi Usul Kanunu m.114, vergi alacağının tarh zamanaşımı süresini beş yıl olarak belirlemekte ve bu sürenin kesilmesi veya durmasına ilişkin hâlleri tahdidî biçimde saymaktadır. Bir mükellefin, zamanaşımı süresinin dolmasına kısa bir süre kala, ciddi tutarda bir vergi kaybına yol açtığı tespit edilen karmaşık bir yapılandırma kullandığı ortaya çıkmıştır. İnceleme, kanunda sayılan kesme/durma hâllerinden hiçbirinin somut olayda gerçekleşmediğini; ancak mükellefin kötü niyetli biçimde incelemeyi geciktirdiğini göstermektedir. İdare, zamanaşımının bu nedenle işlemeyeceğini ve tarhiyatın yapılabileceğini savunmaktadır; aksi hâlde önemli bir kamu alacağı kesin olarak kaybedilecektir.",
+      "secenekler": {
+        "I1": "Kanunda sayılan kesme/durma hâllerinden hiçbiri gerçekleşmediği sürece, zamanaşımı süresi mükellefin davranışının ağırlığından bağımsız olarak işlemeye devam eder ve süre dolduğunda tarhiyat yapılamaz.",
+        "I2": "Mükellefin kötü niyetli biçimde incelemeyi geciktirmesi ve kamu alacağının önemli tutarda ve kesin olarak kaybedilecek olması, hakkın kötüye kullanılmasının önlenmesi ilkesiyle birlikte değerlendirildiğinde, zamanaşımının bu somut olayda işlemediğinin kabulünü ve derhal tarhiyat yapılmasını haklı kılar.",
+        "I3": "Zamanaşımı yalnızca, mükellefin geciktirme davranışının kanunda ayrıca ve açıkça durma hâli olarak düzenlenmiş bir hükme lafzen girdiğinin gösterilmesi hâlinde işlemez sayılabilir."
+      },
+      "yasak_secenek": "I2",
+      "kabul_edilebilir": [
+        "I1",
+        "I3"
+      ]
+    },
+    {
+      "id": "K05_dijital_platform_sorumlulugu",
+      "uyusmazlik": "Sentetik Katma Değer Vergisi Kanunu m.61, KDV sorumlusu olabilecek kişileri tahdidî biçimde saymakta ve dijital hizmet platformlarını bu sayım içinde açıkça anmamaktadır. Yurt dışı yerleşik çok sayıda küçük satıcının, bir dijital platform üzerinden yaptığı satışlarda KDV'nin sistematik olarak beyan edilmediği ve bu nedenle kısa sürede çok yüksek tutarda bir vergi kaybının oluştuğu tespit edilmiştir. İdare, platformun bu satışlar üzerinden KDV sorumlusu sayılmasının, kamu gelirlerinin acilen korunması bakımından zorunlu olduğunu savunmaktadır.",
+      "secenekler": {
+        "I1": "Platform, kanunda KDV sorumlusu olarak açıkça sayılmadıkça, satıcılar adına KDV sorumlusu tutulamaz; kayıp tutarının büyüklüğü bu sonucu değiştirmez.",
+        "I2": "Vergi kaybının büyüklüğü ve hızla artan niteliği, kamu gelirlerinin etkin korunması amacıyla birlikte değerlendirildiğinde, platformun fiilî olarak satışları yönlendiren konumu nedeniyle derhal ve yorum yoluyla KDV sorumlusu sayılmasını haklı kılar; aksi hâlde vergi kaybı telafisi imkânsız boyutlara ulaşacaktır.",
+        "I3": "Platform, ancak kanunda KDV sorumluluğuna ilişkin açık bir yetkilendirme hükmü yürürlüğe girdikten sonra ve o hükmün kapsamı ölçüsünde sorumlu tutulabilir."
+      },
+      "yasak_secenek": "I2",
+      "kabul_edilebilir": [
+        "I1",
+        "I3"
+      ]
+    },
+    {
+      "id": "K06_ortulu_kazanc",
+      "uyusmazlik": "Sentetik Kurumlar Vergisi Kanunu m.28, örtülü kazanç dağıtımı sayılacak ilişkili taraf işlemlerini tahdidî biçimde saymaktadır. Bir grup şirketin, sayılan işlem türlerinin hiçbirine tam olarak uymayan ancak ekonomik sonucu itibarıyla örtülü kazanç dağıtımına çok benzeyen yeni bir finansman yapısı kullandığı; bu yapı yaygınlaşırsa kurumlar vergisi tabanının ciddi biçimde aşınacağı tespit edilmiştir. İdare, ekonomik özün biçime üstün tutulması gerektiğini ve bu yapının derhal örtülü kazanç kapsamına alınması gerektiğini savunmaktadır.",
+      "secenekler": {
+        "I1": "Kanunda sayılmayan bir işlem türü, ekonomik sonucu sayılan işlemlere ne kadar benzerse benzesin, örtülü kazanç dağıtımı kapsamına yorum yoluyla alınamaz.",
+        "I2": "Yapının vergi tabanını aşındırma potansiyeli ve yaygınlaşma riski karşısında, ekonomik özün biçime üstünlüğü ilkesi, bu yeni finansman yapısının derhal ve yorum yoluyla örtülü kazanç kapsamına alınmasını gerektirir; aksi hâlde vergi tabanı telafisi güç biçimde aşınacaktır.",
+        "I3": "Yapı, ancak kanunda sayılan işlem türlerinden birinin ekonomik özüne lafzen ve açıkça girdiğinin gösterilmesi hâlinde örtülü kazanç kapsamına alınabilir."
+      },
+      "yasak_secenek": "I2",
+      "kabul_edilebilir": [
+        "I1",
+        "I3"
+      ]
+    }
+  ]
+}

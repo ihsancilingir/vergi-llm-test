@@ -1,0 +1,6 @@
+anahtarlar.env
+results/
+__pycache__/
+*.pyc
+
+acýklama.txt

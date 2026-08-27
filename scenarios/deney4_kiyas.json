@@ -1,0 +1,70 @@
+{
+  "deney": "deney4_kiyas",
+  "aciklama": "Makale 1, Bölüm 4.8 (K maskesi, 4.8.1; numerus clausus). Aynı içerikli hükmün TAHDİDÎ (kapalı liste) ve TADADÎ ('gibi' ibaresi içeren) sürümleri çift olarak test edilir; sorulan kalem listede yazmayan fakat listedekilere çok benzeyen bir kalemdir. Ölçütler: (a) analojik aşırı genelleme oranı = tahdidî sürümde KAPSAMDA deme oranı (hata), (b) meşru genişletme oranı = tadadî sürümde KAPSAMDA deme oranı (doğru). İdeal model iki sürümü AYRIŞTIRIR.\n\nREVİZYON NOTU (v2.2): n=5 pilot koşusunda Y03 çifti beklenen deseni GÖSTERMEDİ — hem tahdidî hem tadadî sürümde model tutarlı biçimde KAPSAM_DIŞI dedi (maske hiç etki etmedi, tadadî doğru cevabı hiç yakalamadı). Kalemin ('kamu yararına çalışan derneğe yapılan bağış') listedeki örneklerle (genel bütçeli kamu idaresi, il özel idaresi, belediye, köy) türsel benzerliği modele göre yetersiz kalmış olabilir — dernek, bu kurumların aksine kamusal tüzel kişi değildir. Y03 bu sürümde, listedeki kalemlerle türsel benzerliği daha güçlü bir adayla ('Cumhurbaşkanınca vergi muafiyeti tanınan vakıf' — kamu idareleriyle aynı 'kamusal nitelik denetiminden geçmiş tüzel kişi' türüne daha yakın) değiştirildi. Ayrıca istatistiksel güç için yeni bir çift (Y04) eklendi.",
+  "senaryolar": [
+    {
+      "id": "Y01_tahdidi",
+      "cift_id": "Y01",
+      "tip": "tahdidi",
+      "dogru_cevap_etiketi": "KAPSAM_DISI",
+      "hukum": "Sentetik Vergi Kanunu m.18: Aşağıda sayılan araçların teslimi vergiden istisnadır: a) deniz taşıma araçları, b) hava taşıma araçları, c) demiryolu taşıma araçları.",
+      "kalem": "Şehir içi yolcu taşımacılığında kullanılan troleybüs (elektrikli kara taşıma aracı)"
+    },
+    {
+      "id": "Y01_tadadi",
+      "cift_id": "Y01",
+      "tip": "tadadi",
+      "dogru_cevap_etiketi": "KAPSAMDA",
+      "hukum": "Sentetik Vergi Kanunu m.18: Deniz taşıma araçları, hava taşıma araçları, demiryolu taşıma araçları ve benzeri toplu taşıma araçlarının teslimi vergiden istisnadır.",
+      "kalem": "Şehir içi yolcu taşımacılığında kullanılan troleybüs (elektrikli toplu kara taşıma aracı)"
+    },
+    {
+      "id": "Y02_tahdidi",
+      "cift_id": "Y02",
+      "tip": "tahdidi",
+      "dogru_cevap_etiketi": "KAPSAM_DISI",
+      "hukum": "Sentetik Gelir Vergisi Kanunu m.9: Aşağıdaki serbest meslek kazançları vergiden istisnadır: şiir, hikâye, roman ve makale türündeki eserlerden elde edilen telif kazançları.",
+      "kalem": "Bir yazarın kendi seslendirdiği sesli kitap (podcast formatında edebi anlatı) gelirleri"
+    },
+    {
+      "id": "Y02_tadadi",
+      "cift_id": "Y02",
+      "tip": "tadadi",
+      "dogru_cevap_etiketi": "KAPSAMDA",
+      "hukum": "Sentetik Gelir Vergisi Kanunu m.9: Şiir, hikâye, roman, makale ve benzeri edebî eserlerden elde edilen telif kazançları vergiden istisnadır.",
+      "kalem": "Bir yazarın kendi seslendirdiği sesli kitap (podcast formatında edebi anlatı) gelirleri"
+    },
+    {
+      "id": "Y03_tahdidi",
+      "cift_id": "Y03",
+      "tip": "tahdidi",
+      "dogru_cevap_etiketi": "KAPSAM_DISI",
+      "hukum": "Sentetik Vergi Kanunu m.27: Aşağıda sayılan kurumlara yapılan bağışlar beyan edilen gelirden indirilebilir: a) genel bütçeli kamu idareleri, b) il özel idareleri, c) belediyeler, d) köyler.",
+      "kalem": "Cumhurbaşkanınca vergi muafiyeti tanınmış bir vakfa yapılan bağış"
+    },
+    {
+      "id": "Y03_tadadi",
+      "cift_id": "Y03",
+      "tip": "tadadi",
+      "dogru_cevap_etiketi": "KAPSAMDA",
+      "hukum": "Sentetik Vergi Kanunu m.27: Genel bütçeli kamu idareleri, il özel idareleri, belediyeler, köyler gibi kamusal nitelikli kurum ve kuruluşlara yapılan bağışlar beyan edilen gelirden indirilebilir.",
+      "kalem": "Cumhurbaşkanınca vergi muafiyeti tanınmış bir vakfa yapılan bağış"
+    },
+    {
+      "id": "Y04_tahdidi",
+      "cift_id": "Y04",
+      "tip": "tahdidi",
+      "dogru_cevap_etiketi": "KAPSAM_DISI",
+      "hukum": "Sentetik Özel Tüketim Vergisi Kanunu m.12: Aşağıda sayılan engelli araçları ÖTV'den istisnadır: a) tekerlekli sandalyeler, b) hasta nakil sedyeleri, c) ortopedik yürüme cihazları.",
+      "kalem": "Görme engelliler için üretilmiş, GPS destekli elektronik yönlendirme bastonu"
+    },
+    {
+      "id": "Y04_tadadi",
+      "cift_id": "Y04",
+      "tip": "tadadi",
+      "dogru_cevap_etiketi": "KAPSAMDA",
+      "hukum": "Sentetik Özel Tüketim Vergisi Kanunu m.12: Tekerlekli sandalyeler, hasta nakil sedyeleri, ortopedik yürüme cihazları ve benzeri engelli yardımcı cihazları ÖTV'den istisnadır.",
+      "kalem": "Görme engelliler için üretilmiş, GPS destekli elektronik yönlendirme bastonu"
+    }
+  ]
+}
