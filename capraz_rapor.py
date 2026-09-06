@@ -192,6 +192,15 @@ def main():
              ("F=1 → OLGU_ALANI sevki", f_bagimsizlik)],
             "F sütunu: F=1 saptanan tüm koşularda etiketin Ω'dan bağımsız "
             "olarak OLGU_ALANI çıkması beklenir (bağımsız sevk kuralı).")
+        satirlar.append(
+            "\n**Metodolojik not:** Deney 5, `--provider` ile secilen test "
+            "modelini kullanmaz; F/Omega hesaplamasi tamamen `--judge-provider` "
+            "ile secilen yargic tarafindan yapilir. Bu nedenle yukaridaki "
+            "tabloda 'Model' sutunu aslinda yargici degil, o kosuda kullanilan "
+            "--provider degerini gosterir ve farkli --provider degerleriyle "
+            "alinan Deney 5 sonuclari AYNI YARGICLA uretilmisse birebir ozdes "
+            "cikar (bu bir hata degildir). Deney 5, coklu-model karsilastirmasi "
+            "degil, Omega/Psi(w) cercevesinin yargic-tutarliligini test eder.")
 
     with open(args.cikti, "w", encoding="utf-8") as f:
         f.write("\n".join(satirlar) + "\n")

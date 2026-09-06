@@ -275,7 +275,10 @@ def deney5(judge_client: LLMClient, tekrar: int, yazici: SonucYazici):
 VARSAYILAN_MODELLER = {
     "anthropic": "claude-sonnet-4-6",
     "openai": "gpt-4o",
-    "gemini": "gemini-3.1-pro-preview",
+    "gemini": "gemini-3.6-flash",
+    "deepseek": "deepseek-v4-flash",
+    "grok": "grok-4.6",
+    "kumru": "vngrs-ai/Kumru-2B",
 }
 
 

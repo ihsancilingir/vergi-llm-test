@@ -1,0 +1,47 @@
+{
+  "deney": "deney5_omega",
+  "aciklama": "Makale 1, Bölüm 4.9 — Vergiden kaçınma / vergi kaçakçılığı ayrımı: Ω öz denetim skoru ve Ψ(w) üçlü nitelendirme fonksiyonu. Her bileşen (Δ_öz, D_sys, 1−T_w, ilke ihlal yükü, R_kıyas) ayrı bir LLM-as-judge çağrısıyla puanlanır; Ω = Σ βᵢ·bileşenᵢ Python'da hesaplanır. F yargıcı (VUK m.359 göstergesi) Ω'dan bağımsız çalışır: F=1 ise Ω'ya bakılmaksızın olgu alanına sevk (makaledeki en normatif kural). Ağırlıklar ve eşikler makale 4.9.3'teki değerlerdir; kalibrasyon için bu dosyadaki agirliklar/esikler alanlarından değiştirilebilir. Etiketler (makale 4.9.3, DÖRT çıktı): SERBEST_ALAN (F=0, Ω≤θ1), YORUM_ALANI (F=0, θ1<Ω≤θ2 → kaçınma incelemesi), YOGUN_INCELEME (F=0, Ω>θ2 → yoğun inceleme yönlendirmesi; yüksek Ω tek başına ASLA kaçakçılık isnadı doğurmaz), OLGU_ALANI (yalnızca F=1 → yetkili mercilere sevk).",
+  "agirliklar": {
+    "delta_oz": 0.3,
+    "d_sys": 0.15,
+    "amac_sapmasi": 0.25,
+    "ilke_ihlal": 0.2,
+    "r_kiyas": 0.1
+  },
+  "esikler": {
+    "theta1": 0.3,
+    "theta2": 0.6
+  },
+  "senaryolar": [
+    {
+      "id": "O01_makale_ornegi",
+      "olay": "Sanayi sicil belgesini haiz (A) A.Ş., yeni makine ve teçhizat istisnasından yararlanarak bir CNC tezgâhı edinmiş; beyan edilen amaç kendi imalat faaliyetinde kullanımdır. Tezgâh, iktisaptan üç ay sonra grup içi ilişkili (B) Ltd. Şti.'ye kiralanmıştır. Kira bedeli emsallere yakındır; kiralamaya ilişkin belgeler gerçek ve usulüne uygundur. Şirket, istisna şartlarının belge ve beyan düzeyinde korunduğunu savunmaktadır.",
+      "beklenen_etiket": "YORUM_ALANI",
+      "not": "Makale 4.9.3'teki örneğin kendisi; beklenen Ω ≈ 0,45-0,55 bandı, F=0."
+    },
+    {
+      "id": "O02_serbest_alan",
+      "olay": "(C) A.Ş., yıl sonunda yapmayı planladığı makine yatırımını, yeni yılda yürürlüğe girecek daha yüksek istisna oranından yararlanmak için altı hafta ertelemiştir. Yatırım gerçekleşmiş, makine fiilen şirketin kendi imalat hattında kullanılmaktadır; tüm belgeler gerçek durumu yansıtmaktadır.",
+      "beklenen_etiket": "SERBEST_ALAN",
+      "not": "Vergi planlaması / mübah alan: biçim ile öz örtüşük, amaçla uyumlu."
+    },
+    {
+      "id": "O03_olgu_alani_F1",
+      "olay": "(D) Ltd. Şti., istisna kapsamında edindiğini beyan ettiği makinenin kendi tesisinde kullanıldığını göstermek için, fiilen hiç gerçekleşmemiş bakım-onarım hizmetlerine ilişkin sahte faturalar temin etmiş ve bunları kayıtlarına dahil etmiştir. İncelemede faturaların düzenleyicisinin gerçek bir ticari faaliyeti bulunmadığı tespit edilmiştir.",
+      "beklenen_etiket": "OLGU_ALANI",
+      "not": "F=1 (sahte belge) → Ω değerinden bağımsız sevk. Bu senaryo F yargıcının bağımsızlığını test eder."
+    },
+    {
+      "id": "O04_yorum_alani_zincir",
+      "olay": "(E) Holding, satmayı planladığı bir gayrimenkulü doğrudan satmak yerine, gayrimenkulü aktifinde bulunduran yeni bir anonim şirket kurmuş, kısa süre sonra bu şirketin hisselerini devrederek iştirak hissesi satış istisnasından yararlanmıştır. Şirketin gayrimenkul dışında hiçbir faaliyeti, çalışanı ve varlığı yoktur; kuruluş ile hisse devri arasında yedi ay vardır. Tüm işlemler gerçek belgelerle ve şeklen mevzuata uygun yürütülmüştür.",
+      "beklenen_etiket": "YORUM_ALANI",
+      "not": "Klasik biçim-öz ayrışması (peçeleme tartışması); F=0, yüksek Δ_öz ve amaç sapması beklenir."
+    },
+    {
+      "id": "O05_yogun_inceleme",
+      "olay": "(F) A.Ş., grup içinde art arda kurulan üç ara şirket üzerinden, her aşaması ayrı bir istisna veya indirim hükmüne dayandırılan zincirleme bir varlık devri gerçekleştirmiştir. Ara şirketlerin hiçbirinin personeli, faaliyeti veya işlem dışında bir varlığı yoktur; zincirin tamamı dört ay içinde kurulup tasfiye edilmiş ve tek ekonomik sonucu, doğrudan devirde doğacak verginin tamamen ortadan kalkması olmuştur. Bununla birlikte tüm sözleşmeler ve belgeler gerçek işlemleri yansıtmaktadır; sahte veya yanıltıcı belge tespiti yoktur.",
+      "beklenen_etiket": "YOGUN_INCELEME",
+      "not": "F=0 fakat aşırı biçim-öz ayrışması: beklenen Ω > θ2 = 0,60. Makale 4.9.3'ün üçüncü kolunu (yoğun inceleme yönlendirmesi) ve 'yüksek Ω ≠ kaçakçılık isnadı' normatif tezini test eder."
+    }
+  ]
+}

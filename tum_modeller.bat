@@ -1,6 +1,6 @@
-@echo off
+﻿@echo off
 REM =========================================================================
-REM tum_modeller.bat — Ayni deney kumesini uc model ailesinde arka arkaya
+REM tum_modeller.bat -- Ayni deney kumesini alti model ailesinde arka arkaya
 REM kosturur (README metodolojik not 6: "mimari iddia tek modelde
 REM dogrulanamaz; ayni deseni en az 2-3 model ailesinde gostermek gerekir").
 REM
@@ -8,7 +8,7 @@ REM Kullanim:
 REM   tum_modeller.bat                # tum deneyler, tekrar=5
 REM   tum_modeller.bat "1,4" 10       # sadece deney 1 ve 4, tekrar=10
 REM
-REM Yargic sabit tutulur (Anthropic/Claude): boylece uc test modeli AYNI
+REM Yargic sabit tutulur (Anthropic/Claude): boylece test modelleri AYNI
 REM yargicla puanlanir ve modeller arasi karsilastirma yargic farkindan
 REM etkilenmez.
 REM =========================================================================
@@ -40,11 +40,38 @@ if errorlevel 1 (
 
 echo.
 echo ============================================================
-echo   gemini / gemini-3.1-pro-preview  --  deney=%DENEY% tekrar=%TEKRAR%
+echo   gemini / gemini-3.6-flash  --  deney=%DENEY% tekrar=%TEKRAR%
 echo ============================================================
-python runner.py --deney %DENEY% --provider gemini --model gemini-3.1-pro-preview --judge-provider %JUDGE_PROVIDER% --judge-model %JUDGE_MODEL% --tekrar %TEKRAR%
+python runner.py --deney %DENEY% --provider gemini --model gemini-3.6-flash --judge-provider %JUDGE_PROVIDER% --judge-model %JUDGE_MODEL% --tekrar %TEKRAR%
 if errorlevel 1 (
     echo [HATA] Gemini kosusu basarisiz oldu, devam ediliyor...
+)
+
+echo.
+echo ============================================================
+echo   deepseek / deepseek-v4-flash  --  deney=%DENEY% tekrar=%TEKRAR%
+echo ============================================================
+python runner.py --deney %DENEY% --provider deepseek --model deepseek-v4-flash --judge-provider %JUDGE_PROVIDER% --judge-model %JUDGE_MODEL% --tekrar %TEKRAR%
+if errorlevel 1 (
+    echo [HATA] DeepSeek kosusu basarisiz oldu, devam ediliyor...
+)
+
+echo.
+echo ============================================================
+echo   grok / grok-4.6  --  deney=%DENEY% tekrar=%TEKRAR%
+echo ============================================================
+python runner.py --deney %DENEY% --provider grok --model grok-4.6 --judge-provider %JUDGE_PROVIDER% --judge-model %JUDGE_MODEL% --tekrar %TEKRAR%
+if errorlevel 1 (
+    echo [HATA] Grok kosusu basarisiz oldu, devam ediliyor...
+)
+
+echo.
+echo ============================================================
+echo   kumru / vngrs-ai/Kumru-2B  --  deney=%DENEY% tekrar=%TEKRAR%
+echo ============================================================
+python runner.py --deney %DENEY% --provider kumru --model vngrs-ai/Kumru-2B --judge-provider %JUDGE_PROVIDER% --judge-model %JUDGE_MODEL% --tekrar %TEKRAR%
+if errorlevel 1 (
+    echo [HATA] Kumru kosusu basarisiz oldu, devam ediliyor...
 )
 
 echo.

@@ -1,6 +1,6 @@
 {
   "deney": "deney5_omega",
-  "aciklama": "Makale 1, Bölüm 4.9 — Vergiden kaçınma / vergi kaçakçılığı ayrımı: Ω öz denetim skoru ve Ψ(w) üçlü nitelendirme fonksiyonu. Her bileşen (Δ_öz, D_sys, 1−T_w, ilke ihlal yükü, R_kıyas) ayrı bir LLM-as-judge çağrısıyla puanlanır; Ω = Σ βᵢ·bileşenᵢ Python'da hesaplanır. F yargıcı (VUK m.359 göstergesi) Ω'dan bağımsız çalışır: F=1 ise Ω'ya bakılmaksızın olgu alanına sevk (makaledeki en normatif kural). Ağırlıklar ve eşikler makale 4.9.3'teki değerlerdir; kalibrasyon için bu dosyadaki agirliklar/esikler alanlarından değiştirilebilir. Etiketler (makale 4.9.3, DÖRT çıktı): SERBEST_ALAN (F=0, Ω≤θ1), YORUM_ALANI (F=0, θ1<Ω≤θ2 → kaçınma incelemesi), YOGUN_INCELEME (F=0, Ω>θ2 → yoğun inceleme yönlendirmesi; yüksek Ω tek başına ASLA kaçakçılık isnadı doğurmaz), OLGU_ALANI (yalnızca F=1 → yetkili mercilere sevk).",
+  "aciklama": "Makale 1, Bölüm 4.9 — Vergiden kaçınma / vergi kaçakçılığı ayrımı: Ω öz denetim skoru ve Ψ(w) üçlü nitelendirme fonksiyonu. Her bileşen (Δ_öz, D_sys, 1−T_w, ilke ihlal yükü, R_kıyas) ayrı bir LLM-as-judge çağrısıyla puanlanır; Ω = Σ βᵢ·bileşenᵢ Python'da hesaplanır. F yargıcı (VUK m.359 göstergesi) Ω'dan bağımsız çalışır: F=1 ise Ω'ya bakılmaksızın olgu alanına sevk (makaledeki en normatif kural). Ağırlıklar ve eşikler makale 4.9.3'teki değerlerdir; kalibrasyon için bu dosyadaki agirliklar/esikler alanlarından değiştirilebilir. Etiketler (makale 4.9.3, DÖRT çıktı): SERBEST_ALAN (F=0, Ω≤θ1), YORUM_ALANI (F=0, θ1<Ω≤θ2 → kaçınma incelemesi), YOGUN_INCELEME (F=0, Ω>θ2 → yoğun inceleme yönlendirmesi; yüksek Ω tek başına ASLA kaçakçılık isnadı doğurmaz), OLGU_ALANI (yalnızca F=1 → yetkili mercilere sevk). v2.3: O06-O15 eklendi (10 yeni senaryo), toplam 15 senaryo, dort etiket arasinda dengeli dagilim (3 SERBEST_ALAN, 4 YORUM_ALANI, 4 YOGUN_INCELEME, 3 OLGU_ALANI dahil O01-O05).",
   "agirliklar": {
     "delta_oz": 0.3,
     "d_sys": 0.15,
@@ -42,6 +42,66 @@
       "olay": "(F) A.Ş., grup içinde art arda kurulan üç ara şirket üzerinden, her aşaması ayrı bir istisna veya indirim hükmüne dayandırılan zincirleme bir varlık devri gerçekleştirmiştir. Ara şirketlerin hiçbirinin personeli, faaliyeti veya işlem dışında bir varlığı yoktur; zincirin tamamı dört ay içinde kurulup tasfiye edilmiş ve tek ekonomik sonucu, doğrudan devirde doğacak verginin tamamen ortadan kalkması olmuştur. Bununla birlikte tüm sözleşmeler ve belgeler gerçek işlemleri yansıtmaktadır; sahte veya yanıltıcı belge tespiti yoktur.",
       "beklenen_etiket": "YOGUN_INCELEME",
       "not": "F=0 fakat aşırı biçim-öz ayrışması: beklenen Ω > θ2 = 0,60. Makale 4.9.3'ün üçüncü kolunu (yoğun inceleme yönlendirmesi) ve 'yüksek Ω ≠ kaçakçılık isnadı' normatif tezini test eder."
+    },
+    {
+      "id": "O06_serbest_alan",
+      "olay": "(G) A.S., yil sonunda dagitmayi planladigi kar payini, ortaklarin daha dusuk gelir dilimine girecegi bir sonraki mali yila erteleyerek dagitmistir. Islem tamamen seffaf, belgelenmis ve gercek bir kar dagitimidir; ortaklarin gercek ihtiyaci ve sirketin nakit durumu da erteleme kararinda etkili olmustur.",
+      "beklenen_etiket": "SERBEST_ALAN",
+      "not": "Vergi planlamasi; zamanlama tercihi mesru, biçim ile öz örtüsük."
+    },
+    {
+      "id": "O07_serbest_alan",
+      "olay": "(H) Ltd. Sti., ayni islevi goren iki finansman secenegi (banka kredisi vs. ortak sermaye artirimi) arasinda, vergisel sonuclari da degerlendirerek sermaye artirimini tercih etmistir. Sermaye fiilen sirkete girmis, ilgili tum SPK ve ticaret sicili islemleri usulune uygun tamamlanmis, sermaye is faaliyetinde fiilen kullanilmaktadir.",
+      "beklenen_etiket": "SERBEST_ALAN",
+      "not": "Iki mesru secenek arasinda vergi-bilincli tercih; öz ve biçim tam ortusuk."
+    },
+    {
+      "id": "O08_yorum_alani",
+      "olay": "(I) Holding, bir grup sirketinin zararli faaliyetini, karli baska bir grup sirketiyle ayni takvim yili icinde birlestirerek zarar mahsubundan yararlanmistir. Birlesme ticaret hukuku bakimindan gecerli ve tum islemler gercek; ancak birlesen sirketin faaliyeti birlesmeden kisa sure sonra tasfiye edilmis, birlesmenin ticari bir gerekcesi disinda esas amacinin zarar mahsubu oldugu izlenimi guclu.",
+      "beklenen_etiket": "YORUM_ALANI",
+      "not": "Bicim-öz tartismasi orta yogunlukta; F=0, orta duzey Delta_oz ve amac sapmasi beklenir."
+    },
+    {
+      "id": "O09_yorum_alani",
+      "olay": "(J) A.S., ihracat istisnasindan yararlanmak amaciyla mallarini once yurt disinda kurulu iliskili bir aracı sirkete satmis, bu sirket de ayni mallari kisa surede nihai musteriye satmistir. Aracı sirketin kar marji cok dusuk, personeli sinirlidir ancak gercek bir ticari faaliyeti ve vergi mukellefiyeti mevcuttur. Tum islemler belgeli ve gercek mal hareketine dayanmaktadir.",
+      "beklenen_etiket": "YORUM_ALANI",
+      "not": "Aracı yapi supheli ama gercek faaliyet var; F=0, orta-yuksek Delta_oz beklenir."
+    },
+    {
+      "id": "O10_yorum_alani",
+      "olay": "(K) A.S., yurt disi bagli ortakliginda biriken karlarini, temettu vergisinden kacinmak amaciyla temettu yerine faizsiz uzun vadeli borc olarak yurda getirmistir. Borc sozlesmesi gecerli, faiz uygulanmamasi bagli ortaklik ile ana sirket arasindaki mevcut ticari iliskiyle de kismen aciklanabilir niteliktedir.",
+      "beklenen_etiket": "YORUM_ALANI",
+      "not": "Klasik ortulu kar transferi supheli, ama alternatif ticari aciklama mevcut; F=0."
+    },
+    {
+      "id": "O11_yogun_inceleme",
+      "olay": "(L) Grup, ayni gun icinde kurulup aynı gun icinde tasfiye edilen bes ayri kagit uzerinde sirket araciligiyla, tek bir varlik uzerinde art arda alim-satim islemleri gerceklestirmis; her asamada farkli bir istisna hukmune dayanilarak toplam vergi yuku sifira indirilmistir. Sirketlerin hicbirinin ofisi, calisanı veya bagimsiz ekonomik faaliyeti yoktur; ancak tum sozlesmeler noterde gecerli sekilde duzenlenmis, sahte belge tespiti yoktur.",
+      "beklenen_etiket": "YOGUN_INCELEME",
+      "not": "F=0 fakat asiri bicim-oz ayrismasi, tek gunluk zincir; beklenen Omega > theta2."
+    },
+    {
+      "id": "O12_yogun_inceleme",
+      "olay": "(M) A.S., piyasa degerinin cok altinda bir bedelle iliskili bir yurt disi sirkete devrettigi bir gayrimenkulu, iki hafta sonra ayni sirketten piyasa degerine yakin bir bedelle geri satin almistir. Islemlerin tek somut ekonomik sonucu, aradaki deger farkinin yurt disinda vergisiz sekilde birikmesi olmustur. Tum sozlesmeler gercek ve usulune uygun duzenlenmis, sahte belge yoktur.",
+      "beklenen_etiket": "YOGUN_INCELEME",
+      "not": "F=0, dongusel islem deseni, cok yuksek amac sapmasi; beklenen Omega > theta2."
+    },
+    {
+      "id": "O13_yogun_inceleme",
+      "olay": "(N) Holding, bunyesinde faaliyeti olmayan bes farkli 'proje sirketi' kurarak, tek bir buyuk yatirimin insaat harcamalarini bu sirketler arasinda yapay olarak boluştürmus; boylece her sirket ayri ayri kucuk isletme tesviklerinden yararlanmistir. Sirketlerin hicbiri bagimsiz olarak faaliyet gosterebilecek durumda degildir, ancak butun islemler gercek fatura ve sozlesmelere dayanmaktadir.",
+      "beklenen_etiket": "YOGUN_INCELEME",
+      "not": "F=0, yapay bolunme deseni; beklenen Omega > theta2, kacakcilik isnadi degil."
+    },
+    {
+      "id": "O14_olgu_alani_F1",
+      "olay": "(O) Ltd. Sti., gercekte hicbir mal veya hizmet hareketi olmadan, kayitlarina duzenli araliklarla sahte alis faturalari islemis ve bu yolla matrahini sistematik olarak dusurmustur. Faturalarin duzenleyicisi olarak gorunen kisilerin bu unvanla hicbir ticari kaydinin bulunmadigi, adreslerinde faaliyet gostermedikleri tespit edilmistir.",
+      "beklenen_etiket": "OLGU_ALANI",
+      "not": "F=1 (sahte fatura duzenleme/kullanma) -> Omega degerinden bagimsiz sevk."
+    },
+    {
+      "id": "O15_olgu_alani_F1",
+      "olay": "(P) A.S. yetkilisi, vergi incelemesi sirasinda inceleme elemanina ibraz edilmek uzere hazirlanan defter kayitlarini, gercek islemlerden farkli rakamlarla yeniden duzenletmis ve bu tahrif edilmis kayitlari resmi kayit olarak ibraz etmistir.",
+      "beklenen_etiket": "OLGU_ALANI",
+      "not": "F=1 (defter/kayit tahrifi) -> Omega degerinden bagimsiz sevk; F yargicinin bagimsizligini tekrar test eder."
     }
   ]
 }

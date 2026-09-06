@@ -1,0 +1,180 @@
+{
+  "provider": "openai",
+  "zaman": "20260829_205948",
+  "sonuclar": [
+    {
+      "id": "E01",
+      "kategori": "kapali_lafzi",
+      "terim_a": "teslim",
+      "terim_b": "teslim etmek",
+      "benzerlik": 0.3584,
+      "beklenen_iliski": "DUSUK_BENZERLIK"
+    },
+    {
+      "id": "E02",
+      "kategori": "kapali_lafzi",
+      "terim_a": "arizi kazanc",
+      "terim_b": "ani kazanc",
+      "benzerlik": 0.4307,
+      "beklenen_iliski": "DUSUK_BENZERLIK"
+    },
+    {
+      "id": "E03",
+      "kategori": "kapali_lafzi",
+      "terim_a": "emsal bedel",
+      "terim_b": "benzer fiyat",
+      "benzerlik": 0.4101,
+      "beklenen_iliski": "DUSUK_BENZERLIK"
+    },
+    {
+      "id": "E04",
+      "kategori": "kapali_lafzi",
+      "terim_a": "mukellef",
+      "terim_b": "sorumlu kisi",
+      "benzerlik": 0.3511,
+      "beklenen_iliski": "DUSUK_BENZERLIK"
+    },
+    {
+      "id": "E05",
+      "kategori": "kapali_lafzi",
+      "terim_a": "iktisap",
+      "terim_b": "satin alma",
+      "benzerlik": 0.3077,
+      "beklenen_iliski": "DUSUK_BENZERLIK"
+    },
+    {
+      "id": "E06",
+      "kategori": "kapali_lafzi",
+      "terim_a": "tevkifat",
+      "terim_b": "kesinti",
+      "benzerlik": 0.3843,
+      "beklenen_iliski": "DUSUK_BENZERLIK"
+    },
+    {
+      "id": "E07",
+      "kategori": "kapali_lafzi",
+      "terim_a": "istisna",
+      "terim_b": "muafiyet",
+      "benzerlik": 0.358,
+      "beklenen_iliski": "DUSUK_BENZERLIK"
+    },
+    {
+      "id": "E08",
+      "kategori": "kapali_lafzi",
+      "terim_a": "vergiyi doguran olay",
+      "terim_b": "an",
+      "benzerlik": 0.2949,
+      "beklenen_iliski": "DUSUK_BENZERLIK"
+    },
+    {
+      "id": "E09",
+      "kategori": "acik_lafzi",
+      "terim_a": "hizmet",
+      "terim_b": "is",
+      "benzerlik": 0.2912,
+      "beklenen_iliski": "DUSUK_BENZERLIK"
+    },
+    {
+      "id": "E10",
+      "kategori": "acik_lafzi",
+      "terim_a": "gelir",
+      "terim_b": "kazanc",
+      "benzerlik": 0.4448,
+      "beklenen_iliski": "DUSUK_BENZERLIK"
+    },
+    {
+      "id": "E11",
+      "kategori": "acik_lafzi",
+      "terim_a": "ticari kazanc",
+      "terim_b": "kar",
+      "benzerlik": 0.3512,
+      "beklenen_iliski": "DUSUK_BENZERLIK"
+    },
+    {
+      "id": "E12",
+      "kategori": "acik_lafzi",
+      "terim_a": "gayrimenkul",
+      "terim_b": "ev",
+      "benzerlik": 0.3413,
+      "beklenen_iliski": "DUSUK_BENZERLIK"
+    },
+    {
+      "id": "E13",
+      "kategori": "acik_lafzi",
+      "terim_a": "kurum",
+      "terim_b": "sirket",
+      "benzerlik": 0.287,
+      "beklenen_iliski": "DUSUK_BENZERLIK"
+    },
+    {
+      "id": "E14",
+      "kategori": "acik_lafzi",
+      "terim_a": "beyanname",
+      "terim_b": "bildirim",
+      "benzerlik": 0.3084,
+      "beklenen_iliski": "DUSUK_BENZERLIK"
+    },
+    {
+      "id": "E15",
+      "kategori": "kontrol",
+      "terim_a": "araba",
+      "terim_b": "otomobil",
+      "benzerlik": 0.6051,
+      "beklenen_iliski": "YUKSEK_BENZERLIK"
+    },
+    {
+      "id": "E16",
+      "kategori": "kontrol",
+      "terim_a": "kitap",
+      "terim_b": "eser",
+      "benzerlik": 0.48,
+      "beklenen_iliski": "YUKSEK_BENZERLIK"
+    },
+    {
+      "id": "E17",
+      "kategori": "kontrol",
+      "terim_a": "masa",
+      "terim_b": "sehpa",
+      "benzerlik": 0.6337,
+      "beklenen_iliski": "YUKSEK_BENZERLIK"
+    },
+    {
+      "id": "E18",
+      "kategori": "kontrol",
+      "terim_a": "kalem",
+      "terim_b": "tukenmez",
+      "benzerlik": 0.3702,
+      "beklenen_iliski": "YUKSEK_BENZERLIK"
+    },
+    {
+      "id": "E19",
+      "kategori": "kontrol",
+      "terim_a": "telefon",
+      "terim_b": "cep telefonu",
+      "benzerlik": 0.6206,
+      "beklenen_iliski": "YUKSEK_BENZERLIK"
+    },
+    {
+      "id": "E20",
+      "kategori": "kontrol",
+      "terim_a": "bahce",
+      "terim_b": "avlu",
+      "benzerlik": 0.49,
+      "beklenen_iliski": "YUKSEK_BENZERLIK"
+    }
+  ],
+  "kategori_ozet": {
+    "kapali_lafzi": {
+      "n": 8,
+      "ortalama": 0.3619114976430954
+    },
+    "acik_lafzi": {
+      "n": 6,
+      "ortalama": 0.33731542077570537
+    },
+    "kontrol": {
+      "n": 6,
+      "ortalama": 0.533279377706361
+    }
+  }
+}

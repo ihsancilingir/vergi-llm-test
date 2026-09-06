@@ -1,54 +1,36 @@
 {
   "deney": "deney2_rag",
-  "aciklama": "Makale 1, Bölüm 4.4 — Tarihi amaçsal yorum / RAG. Sentetik madde gerekçeleri korpusu üzerinden, gerekçesiz (parametrik bellek) ve gerekçeli (RAG) koşullar karşılaştırılır. Ölçütler: (a) modelin amaç tespitinin gerçek gerekçeyle örtüşmesi, (b) uydurma amaç atfı (halüsinasyon) oranı. Sentetik gerekçe kullanımının nedeni: gerçek gerekçeler eğitim verisinde olabilir; sentetik gerekçe, RAG'in katkısını parametrik ezberden ayırır. Ayrıca yürürlük-tarihi tuzağı senaryosu (R03) 4.4.2'deki tarihsel-normatif düzeltme terimini (T_i ve M_i) sınar.",
+  "aciklama": "Makale 1, Bolum 4.4 -- Tarihi amacsal yorum / RAG. Sentetik madde gerekceleri korpusu uzerinden, gerekcesiz (parametrik bellek) ve gerekceli (RAG) kosullar karsilastirilir. Olcutler: (a) modelin amac tespitinin gercek gerekceyle ortusmesi, (b) uydurma amac atfi (halusinasyon) orani. Sentetik gerekce kullaniminin nedeni: gercek gerekceler egitim verisinde olabilir; sentetik gerekce, RAG'in katkisini parametrik ezberden ayirir. Korpus, Deney 1'deki sentetik kanun maddeleriyle paylasilan madde numaralarini kullanir (metodolojik tutarlilik). 14 senaryo: 12 dogrudan amac tespiti (R01-R12) + 2 tuzak (R13 yururluk-tarihi, R14 alakasiz-belge).",
   "korpus": [
-    {
-      "belge_id": "G-14",
-      "baslik": "Sentetik Vergi Kanunu m.14 madde gerekçesi",
-      "metin": "Madde ile, imalat sanayiinin üretim kapasitesinin ve teknoloji düzeyinin yükseltilmesi amaçlanmaktadır. Düzenlemenin hedefi, sanayi işletmelerinin makine parkını yenilemelerinin önündeki finansman yükünü hafifletmek ve yerli üretimin uluslararası rekabet gücünü artırmaktır. İstisna, makine ve teçhizatın imalat faaliyetinde fiilen kullanılması koşuluna bağlanmış; amaç dışı kullanımın önlenmesi gözetilmiştir."
-    },
-    {
-      "belge_id": "G-22",
-      "baslik": "Sentetik Vergi Kanunu m.22 madde gerekçesi",
-      "metin": "Madde ile eğitim hizmetlerine erişimin maliyetinin düşürülmesi ve eğitimde fırsat eşitliğinin desteklenmesi amaçlanmaktadır. Vergi yükünün eğitim ücretlerine yansıyarak aileler üzerinde ilave külfet oluşturmasının önüne geçilmek istenmiştir."
-    },
-    {
-      "belge_id": "G-31-ilk",
-      "baslik": "Sentetik Vergi Kanunu m.31 madde gerekçesi (ilk hâli, 2019)",
-      "metin": "Madde ile nitelikli araştırmacı istihdamının teşvik edilmesi ve beyin göçünün önlenmesi amaçlanmaktadır. Ücret istisnası, araştırmacı personelin net gelirini artırarak Ar-Ge merkezlerinin nitelikli insan gücü çekebilmesini hedefler."
-    },
-    {
-      "belge_id": "G-31-degisiklik",
-      "baslik": "m.31 değişiklik gerekçesi (2024 — 7999 sayılı Sentetik Kanun m.6)",
-      "metin": "Maddede yapılan değişiklikle istisnanın kapsamı, tasarım merkezlerinde çalışan tasarımcı personeli de içerecek şekilde genişletilmiştir. Değişiklik 1.1.2025 tarihinde yürürlüğe girer. Değişikliğin amacı, tasarım faaliyetlerinin Ar-Ge ile bütünleşik niteliğinin teşvik sisteminde karşılık bulmasıdır."
-    }
+    {"belge_id":"G-14","baslik":"Sentetik Vergi Kanunu m.14 madde gerekcesi","metin":"Madde ile, imalat sanayiinin uretim kapasitesinin ve teknoloji duzeyinin yukseltilmesi amaclanmaktadir. Duzenlemenin hedefi, sanayi isletmelerinin makine parkini yenilemelerinin onundeki finansman yukunu hafifletmek ve yerli uretimin uluslararasi rekabet gucunu artirmaktir. Istisna, makine ve techizatin imalat faaliyetinde fiilen kullanilmasi kosuluna baglanmis; amac disi kullanimin onlenmesi gozetilmistir."},
+    {"belge_id":"G-22","baslik":"Sentetik Vergi Kanunu m.22 madde gerekcesi","metin":"Madde ile egitim hizmetlerine erisimin maliyetinin dusurulmesi ve egitimde firsat esitliginin desteklenmesi amaclanmaktadir. Vergi yukunun egitim ucretlerine yansiyarak aileler uzerinde ilave kulfet olusturmasinin onune gecilmek istenmistir."},
+    {"belge_id":"G-31-ilk","baslik":"Sentetik Vergi Kanunu m.31 madde gerekcesi (ilk hali, 2019)","metin":"Madde ile nitelikli arastirmaci istihdaminin tesvik edilmesi ve beyin gocunun onlenmesi amaclanmaktadir. Ucret istisnasi, arastirmaci personelin net gelirini artirarak Ar-Ge merkezlerinin nitelikli insan gucu cekebilmesini hedefler."},
+    {"belge_id":"G-31-degisiklik","baslik":"m.31 degisiklik gerekcesi (2024 -- 7999 sayili Sentetik Kanun m.6)","metin":"Maddede yapilan degisiklikle istisnanin kapsami, tasarim merkezlerinde calisan tasarimci personeli de icerecek sekilde genisletilmistir. Degisiklik 1.1.2025 tarihinde yururluge girer. Degisikligin amaci, tasarim faaliyetlerinin Ar-Ge ile butunlesik niteliginin tesvik sisteminde karsilik bulmasidir."},
+    {"belge_id":"G-09","baslik":"Sentetik Vergi Kanunu m.9 madde gerekcesi","metin":"Madde ile tarimsal uretimde girdi maliyetlerinin dusurulmesi ve sulamali tarim alanlarinin genisletilmesi amaclanmaktadir. Elektrik enerjisi maliyetinin tarimsal sulamada onemli bir yuk olusturmasi nedeniyle, bu tuketimin vergi disinda birakilmasi ciftcilerin uretim maliyetlerini azaltmayi hedefler."},
+    {"belge_id":"G-27","baslik":"Sentetik Vergi Kanunu m.27 madde gerekcesi","metin":"Madde ile yazilim sektorunun ihracat kapasitesinin artirilmasi ve doviz girdisinin tesvik edilmesi amaclanmaktadir. Yazilim ihracatinin katma deger vergisinden istisna tutulmasi, sektorun uluslararasi rekabet gucunu guclendirmeyi ve teknoloji ihracatinin ulke ekonomisine katkisini artirmayi hedefler."},
+    {"belge_id":"G-45","baslik":"Sentetik Vergi Kanunu m.45 madde gerekcesi","metin":"Madde ile sermaye piyasalarinin derinlesmesi ve halka acilmanin tesvik edilmesi amaclanmaktadir. Pay senedi ihraclarinda duzenlenen kagitlarin damga vergisinden istisna tutulmasi, sirketlerin halka acilma maliyetlerini azaltarak sermaye piyasasina erisimi kolaylastirmayi hedefler."},
+    {"belge_id":"G-52","baslik":"Sentetik Vergi Kanunu m.52 madde gerekcesi","metin":"Madde ile engelli bireylerin istihdama katilimini artirmak ve isverenler uzerindeki ilave maliyet yukunu hafifletmek amaclanmaktadir. Sigorta primi isveren hissesinin vergi matrahindan indirilmesi, isletmeleri engelli istihdamina yonlendiren bir tesvik mekanizmasi olarak tasarlanmistir."},
+    {"belge_id":"G-61","baslik":"Sentetik Vergi Kanunu m.61 madde gerekcesi","metin":"Madde ile serbest meslek erbabinin mesleki bilgi ve becerisini uluslararasi standartlara tasimasi amaclanmaktadir. Yurt disi egitim harcamalarinin matrahtan indirilebilmesi, meslek mensuplarinin surekli mesleki gelisimini finansal olarak desteklemeyi hedefler."},
+    {"belge_id":"G-33","baslik":"Sentetik Vergi Kanunu m.33 madde gerekcesi","metin":"Madde ile organize sanayi bolgelerinde yeni imalat tesisi yatiriminin tesvik edilmesi amaclanmaktadir. Insaat asamasinda odenen katma deger vergisinin iade konusu yapilmasi, yatirimcilarin finansman yukunu azaltarak bolgesel sanayilesmeyi hizlandirmayi hedefler."},
+    {"belge_id":"G-17","baslik":"Sentetik Vergi Kanunu m.17 madde gerekcesi","metin":"Madde ile yenilenebilir enerji yatirimlarinin artirilmasi ve enerjide disa bagimliligin azaltilmasi amaclanmaktadir. Ithal makine ve techizatin gumruk vergisinden istisna tutulmasi, yatirim maliyetlerini dusurerek temiz enerji donusumunu hizlandirmayi hedefler."},
+    {"belge_id":"G-39","baslik":"Sentetik Vergi Kanunu m.39 madde gerekcesi","metin":"Madde ile kar amaci gutmeyen kurulusların faaliyetlerinin desteklenmesi ve bagis kulturunun yayginlastirilmasi amaclanmaktadir. Nakdi bagislarin belirli bir tavana kadar matrahtan indirilebilmesi, bireyleri sivil toplum faaliyetlerine katkida bulunmaya tesvik etmeyi hedefler."},
+    {"belge_id":"G-58","baslik":"Sentetik Vergi Kanunu m.58 madde gerekcesi","metin":"Madde ile kurumlarin Ar-Ge faaliyetlerinin kurumsal bir yapi icinde, denetlenebilir sekilde yurutulmesi amaclanmaktadir. Ar-Ge merkezi belgesi sarti, indirimin yalnizca gercek ve surdurulebilir arastirma kapasitesine sahip kurumlara yonlendirilmesini saglamayi hedefler."},
+    {"belge_id":"G-71","baslik":"Sentetik Vergi Kanunu m.71 madde gerekcesi","metin":"Madde ile serbest bolgelerin uluslararasi ticaret merkezleri olarak cazibesinin artirilmasi amaclanmaktadir. Bolgedeki kazanclarin vergi disinda birakilmasi, yabanci sermayeyi ve ihracata yonelik uretimi bu bolgelere cekmeyi hedefler."}
   ],
   "senaryolar": [
-    {
-      "id": "R01",
-      "soru": "Sentetik Vergi Kanunu m.14'teki yeni makine ve teçhizat istisnasında kanun koyucunun amacı nedir? İstisna kapsamında alınan bir tezgâhın kısa süre sonra üçüncü kişiye kiralanması bu amaçla bağdaşır mı?",
-      "ilgili_belgeler": [
-        "G-14"
-      ],
-      "gercek_gerekce": "İmalat sanayiinin üretim kapasitesi ve teknoloji düzeyinin yükseltilmesi; makine parkı yenilemenin finansman yükünün hafifletilmesi; rekabet gücü; fiilî imalat kullanımı koşulu ile amaç dışı kullanımın önlenmesi."
-    },
-    {
-      "id": "R02",
-      "soru": "Sentetik Vergi Kanunu m.22'deki eğitim istisnasının amacı nedir? Bu amaç, okulun kâr amacı gütmesi hâlinde istisnayı etkiler mi?",
-      "ilgili_belgeler": [
-        "G-22"
-      ],
-      "gercek_gerekce": "Eğitim hizmetlerine erişim maliyetinin düşürülmesi ve fırsat eşitliği; vergi yükünün eğitim ücretlerine yansımasının önlenmesi. Gerekçede kâr amacına ilişkin bir ayrım yoktur."
-    },
-    {
-      "id": "R03_tarih_tuzagi",
-      "soru": "Bir tasarım merkezinde tasarımcı olarak çalışan personelin Mart 2024 dönemine ait ücreti, Sentetik Vergi Kanunu m.31 istisnasından yararlanabilir mi? Kanun koyucunun amacı bakımından değerlendiriniz.",
-      "ilgili_belgeler": [
-        "G-31-ilk",
-        "G-31-degisiklik"
-      ],
-      "gercek_gerekce": "İlk hâlin amacı nitelikli araştırmacı istihdamı ve beyin göçünün önlenmesidir; tasarımcıları kapsayan genişletme 1.1.2025'te yürürlüğe girmiştir. Mart 2024 dönemi için tasarımcı personel istisna kapsamında DEĞİLDİR; amaçsal genişletme yürürlük tarihini aşamaz.",
-      "tuzak": "yururluk_tarihi"
-    }
+    {"id":"R01","soru":"Sentetik Vergi Kanunu m.14'teki yeni makine ve techizat istisnasinda kanun koyucunun amaci nedir? Istisna kapsaminda alinan bir tezgahin kisa sure sonra ucuncu kisiye kiralanmasi bu amacla bagdasir mi?","ilgili_belgeler":["G-14"],"gercek_gerekce":"Imalat sanayiinin uretim kapasitesi ve teknoloji duzeyinin yukseltilmesi; makine parki yenilemenin finansman yukunun hafifletilmesi; rekabet gucu; fiili imalat kullanimi kosulu ile amac disi kullanimin onlenmesi."},
+    {"id":"R02","soru":"Sentetik Vergi Kanunu m.22'deki egitim istisnasinin amaci nedir? Bu amac, okulun kar amaci gutmesi halinde istisnayi etkiler mi?","ilgili_belgeler":["G-22"],"gercek_gerekce":"Egitim hizmetlerine erisim maliyetinin dusurulmesi ve firsat esitligi; vergi yukunun egitim ucretlerine yansimasinin onlenmesi. Gerekcede kar amacina iliskin bir ayrim yoktur."},
+    {"id":"R03","soru":"Sentetik Vergi Kanunu m.9'daki tarimsal sulama elektrigi istisnasinin amaci nedir? Sulama disinda, tarimsal urun depolama sogutmasi icin kullanilan elektrik bu amacla bagdasir mi?","ilgili_belgeler":["G-09"],"gercek_gerekce":"Tarimsal uretimde girdi maliyetlerinin dusurulmesi ve sulamali tarim alanlarinin genisletilmesi. Gerekce ozel olarak sulama amacli tuketimi hedeflemektedir; depolama sogutmasi gerekcede yer almaz."},
+    {"id":"R04","soru":"Sentetik Vergi Kanunu m.27'deki yazilim ihracati istisnasinin amaci nedir? Bu amac, yazilimin yurt ici bir sirkete satilip o sirket araciligiyla yurt disina aktarilmasi durumunda gecerliligini korur mu?","ilgili_belgeler":["G-27"],"gercek_gerekce":"Yazilim sektorunun ihracat kapasitesinin artirilmasi ve doviz girdisinin tesviki; uluslararasi rekabet gucu. Gerekce dogrudan ihracati hedefler; dolayli satis modelleri gerekcede tartisilmamistir."},
+    {"id":"R05","soru":"Sentetik Vergi Kanunu m.45'teki damga vergisi istisnasinin amaci nedir? Bu amac, halka acik olmayan bir sirketin ozel bir yatirimciya pay satisinda da gecerli midir?","ilgili_belgeler":["G-45"],"gercek_gerekce":"Sermaye piyasalarinin derinlesmesi ve halka acilmanin tesviki; halka acilma maliyetlerinin azaltilmasi. Gerekce ozel olarak halka acik anonim sirketlerin pay senedi ihracini hedefler."},
+    {"id":"R06","soru":"Sentetik Vergi Kanunu m.52'deki engelli istihdami indiriminin amaci nedir? Bu amac, isverenin engelli calisanlari yalnizca kismi sureli istihdam etmesi durumunda da gecerlidir mi?","ilgili_belgeler":["G-52"],"gercek_gerekce":"Engelli bireylerin istihdama katiliminin artirilmasi ve isveren maliyet yukunun hafifletilmesi. Gerekcede tam/kismi sureli istihdam ayrimina iliskin bir ifade yoktur."},
+    {"id":"R07","soru":"Sentetik Vergi Kanunu m.61'deki yurt disi egitim indiriminin amaci nedir? Bu amac, egitimin dogrudan mesleki alanla ilgisiz genel kultur icerikli olmasi durumunda da gecerli midir?","ilgili_belgeler":["G-61"],"gercek_gerekce":"Serbest meslek erbabinin mesleki bilgi ve becerisinin uluslararasi standartlara tasinmasi; surekli mesleki gelisimin finansal desteklenmesi. Gerekce mesleki icerikli egitimi hedefler; genel kultur egitimi gerekcede yer almaz."},
+    {"id":"R08","soru":"Sentetik Vergi Kanunu m.33'teki KDV iade duzenlemesinin amaci nedir? Bu amac, tesisin organize sanayi bolgesi disinda kurulmasi durumunda da gecerli midir?","ilgili_belgeler":["G-33"],"gercek_gerekce":"Organize sanayi bolgelerinde yeni imalat tesisi yatiriminin tesviki; bolgesel sanayilesmenin hizlandirilmasi. Gerekce ozel olarak organize sanayi bolgelerini hedefler."},
+    {"id":"R09","soru":"Sentetik Vergi Kanunu m.17'deki gumruk istisnasinin amaci nedir? Bu amac, ithal edilen makinenin yenilenebilir enerji disinda, fosil yakitli bir tesiste kullanilmasi durumunda da gecerli midir?","ilgili_belgeler":["G-17"],"gercek_gerekce":"Yenilenebilir enerji yatirimlarinin artirilmasi ve enerjide disa bagimliligin azaltilmasi. Gerekce ozel olarak yenilenebilir enerji yatirimlarini hedefler; fosil yakitli kullanim gerekceyle bagdasmaz."},
+    {"id":"R10","soru":"Sentetik Vergi Kanunu m.39'daki bagis indiriminin amaci nedir? Bu amac, bagisin bir siyasi partiye yapilmasi durumunda da gecerli midir?","ilgili_belgeler":["G-39"],"gercek_gerekce":"Kar amaci gutmeyen kuruluslarin desteklenmesi ve bagis kulturunun yayginlastirilmasi; sivil toplum katkisinin tesviki. Gerekce dernek ve vakiflari hedefler; siyasi partiler gerekcede yer almaz."},
+    {"id":"R11","soru":"Sentetik Vergi Kanunu m.58'deki Ar-Ge indiriminin amaci nedir? Bu amac, Ar-Ge merkezi belgesi olmayan ancak fiilen yogun arastirma faaliyeti yuruten bir sirket icin de gecerli sayilabilir mi?","ilgili_belgeler":["G-58"],"gercek_gerekce":"Ar-Ge faaliyetlerinin kurumsal ve denetlenebilir bir yapida yurutulmesi; indirimin surdurulebilir arastirma kapasitesine sahip kurumlara yonlendirilmesi. Gerekce, belgelendirmeyi amacin bir parcasi olarak konumlandirir."},
+    {"id":"R12","soru":"Sentetik Vergi Kanunu m.71'deki serbest bolge istisnasinin amaci nedir? Bu amac, bolgedeki faaliyetin yalnizca yurt ici satisa yonelik olmasi durumunda da gecerli midir?","ilgili_belgeler":["G-71"],"gercek_gerekce":"Serbest bolgelerin uluslararasi ticaret merkezleri olarak cazibesinin artirilmasi; yabanci sermaye ve ihracata yonelik uretimin cekilmesi. Gerekce ihracata yonelik uretimi one cikarir; yalnizca yurt ici satis gerekceyle tam bagdasmaz."},
+    {"id":"R13_tarih_tuzagi","soru":"Bir tasarim merkezinde tasarimci olarak calisan personelin Mart 2024 donemine ait ucreti, Sentetik Vergi Kanunu m.31 istisnasindan yararlanabilir mi? Kanun koyucunun amaci bakimindan degerlendiriniz.","ilgili_belgeler":["G-31-ilk","G-31-degisiklik"],"gercek_gerekce":"Ilk halin amaci nitelikli arastirmaci istihdami ve beyin gocunun onlenmesidir; tasarimcilari kapsayan genisletme 1.1.2025'te yururluge girmistir. Mart 2024 donemi icin tasarimci personel istisna kapsaminda DEGILDIR; amacsal genisletme yururluk tarihini asamaz.","tuzak":"yururluk_tarihi"},
+    {"id":"R14_alakasiz_tuzak","soru":"Sentetik Vergi Kanunu m.52'deki engelli istihdami indiriminin amaci nedir?","ilgili_belgeler":["G-45"],"gercek_gerekce":"Saglanan belge (G-45), damga vergisi istisnasina iliskin olup m.52 engelli istihdami indirimiyle ilgili degildir. Bu belgeden m.52'nin amacina dair gecerli bir gerekce cikarilamaz; model bu durumu belirtmeli, belgeyi zorlayarak m.52 icin bir amac uydurmamalidir.","tuzak":"alakasiz_belge"}
   ]
 }

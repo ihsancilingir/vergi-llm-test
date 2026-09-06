@@ -1,6 +1,6 @@
 {
   "deney": "deney4_kiyas",
-  "aciklama": "Makale 1, Bölüm 4.8 (K maskesi, 4.8.1; numerus clausus). Aynı içerikli hükmün TAHDİDÎ (kapalı liste) ve TADADÎ ('gibi' ibaresi içeren) sürümleri çift olarak test edilir; sorulan kalem listede yazmayan fakat listedekilere çok benzeyen bir kalemdir. Ölçütler: (a) analojik aşırı genelleme oranı = tahdidî sürümde KAPSAMDA deme oranı (hata), (b) meşru genişletme oranı = tadadî sürümde KAPSAMDA deme oranı (doğru). İdeal model iki sürümü AYRIŞTIRIR.\n\nREVİZYON NOTU (v2.2): n=5 pilot koşusunda Y03 çifti beklenen deseni GÖSTERMEDİ — hem tahdidî hem tadadî sürümde model tutarlı biçimde KAPSAM_DIŞI dedi (maske hiç etki etmedi, tadadî doğru cevabı hiç yakalamadı). Kalemin ('kamu yararına çalışan derneğe yapılan bağış') listedeki örneklerle (genel bütçeli kamu idaresi, il özel idaresi, belediye, köy) türsel benzerliği modele göre yetersiz kalmış olabilir — dernek, bu kurumların aksine kamusal tüzel kişi değildir. Y03 bu sürümde, listedeki kalemlerle türsel benzerliği daha güçlü bir adayla ('Cumhurbaşkanınca vergi muafiyeti tanınan vakıf' — kamu idareleriyle aynı 'kamusal nitelik denetiminden geçmiş tüzel kişi' türüne daha yakın) değiştirildi. Ayrıca istatistiksel güç için yeni bir çift (Y04) eklendi.",
+  "aciklama": "Makale 1, Bölüm 4.8 (K maskesi, 4.8.1; numerus clausus). Aynı içerikli hükmün TAHDİDÎ (kapalı liste) ve TADADÎ ('gibi' ibaresi içeren) sürümleri çift olarak test edilir; sorulan kalem listede yazmayan fakat listedekilere çok benzeyen bir kalemdir. Ölçütler: (a) analojik aşırı genelleme oranı = tahdidî sürümde KAPSAMDA deme oranı (hata), (b) meşru genişletme oranı = tadadî sürümde KAPSAMDA deme oranı (doğru). İdeal model iki sürümü AYRIŞTIRIR.\n\nREVİZYON NOTU (v2.2): n=5 pilot koşusunda Y03 çifti beklenen deseni GÖSTERMEDİ — hem tahdidî hem tadadî sürümde model tutarlı biçimde KAPSAM_DIŞI dedi (maske hiç etki etmedi, tadadî doğru cevabı hiç yakalamadı). Kalemin ('kamu yararına çalışan derneğe yapılan bağış') listedeki örneklerle (genel bütçeli kamu idaresi, il özel idaresi, belediye, köy) türsel benzerliği modele göre yetersiz kalmış olabilir — dernek, bu kurumların aksine kamusal tüzel kişi değildir. Y03 bu sürümde, listedeki kalemlerle türsel benzerliği daha güçlü bir adayla ('Cumhurbaşkanınca vergi muafiyeti tanınan vakıf' — kamu idareleriyle aynı 'kamusal nitelik denetiminden geçmiş tüzel kişi' türüne daha yakın) değiştirildi. Ayrıca istatistiksel güç için yeni bir çift (Y04) eklendi. v2.3: Y05-Y10 eklendi (6 yeni cift, 12 senaryo), toplam 10 cift / 20 senaryo, farkli vergi turlerinde (KDV, MTV, damga, emlak, OTV, GVK sosyal yardim istisnalari).",
   "senaryolar": [
     {
       "id": "Y01_tahdidi",
@@ -65,6 +65,102 @@
       "dogru_cevap_etiketi": "KAPSAMDA",
       "hukum": "Sentetik Özel Tüketim Vergisi Kanunu m.12: Tekerlekli sandalyeler, hasta nakil sedyeleri, ortopedik yürüme cihazları ve benzeri engelli yardımcı cihazları ÖTV'den istisnadır.",
       "kalem": "Görme engelliler için üretilmiş, GPS destekli elektronik yönlendirme bastonu"
+    },
+    {
+      "id": "Y05_tahdidi",
+      "cift_id": "Y05",
+      "tip": "tahdidi",
+      "dogru_cevap_etiketi": "KAPSAM_DISI",
+      "hukum": "Sentetik Katma Deger Vergisi Kanunu m.24: Asagida sayilan gida maddelerinin teslimi indirimli orana tabidir: a) bugday unu, b) pirinc, c) bulgur.",
+      "kalem": "Bugday unundan uretilen, bugday ununa islevsel olarak esdeger kinoa unu"
+    },
+    {
+      "id": "Y05_tadadi",
+      "cift_id": "Y05",
+      "tip": "tadadi",
+      "dogru_cevap_etiketi": "KAPSAMDA",
+      "hukum": "Sentetik Katma Deger Vergisi Kanunu m.24: Bugday unu, pirinc, bulgur ve benzeri temel gida maddelerinin teslimi indirimli orana tabidir.",
+      "kalem": "Bugday unundan uretilen, bugday ununa islevsel olarak esdeger kinoa unu"
+    },
+    {
+      "id": "Y06_tahdidi",
+      "cift_id": "Y06",
+      "tip": "tahdidi",
+      "dogru_cevap_etiketi": "KAPSAM_DISI",
+      "hukum": "Sentetik Motorlu Tasitlar Vergisi Kanunu m.5: Asagida sayilan tasit turleri icin indirimli tarife uygulanir: a) elektrikli otomobiller, b) hibrit otomobiller.",
+      "kalem": "Hidrojen yakit hucreli otomobil (elektrik motoruyla calisan, sifir emisyonlu)"
+    },
+    {
+      "id": "Y06_tadadi",
+      "cift_id": "Y06",
+      "tip": "tadadi",
+      "dogru_cevap_etiketi": "KAPSAMDA",
+      "hukum": "Sentetik Motorlu Tasitlar Vergisi Kanunu m.5: Elektrikli otomobiller, hibrit otomobiller ve benzeri dusuk emisyonlu tasitlar icin indirimli tarife uygulanir.",
+      "kalem": "Hidrojen yakit hucreli otomobil (elektrik motoruyla calisan, sifir emisyonlu)"
+    },
+    {
+      "id": "Y07_tahdidi",
+      "cift_id": "Y07",
+      "tip": "tahdidi",
+      "dogru_cevap_etiketi": "KAPSAM_DISI",
+      "hukum": "Sentetik Damga Vergisi Kanunu m.8: Asagida sayilan kagitlar damga vergisinden istisnadir: a) is sozlesmeleri, b) toplu is sozlesmeleri.",
+      "kalem": "Uzaktan calisma (remote) modelinde imzalanan elektronik is sozlesmesi"
+    },
+    {
+      "id": "Y07_tadadi",
+      "cift_id": "Y07",
+      "tip": "tadadi",
+      "dogru_cevap_etiketi": "KAPSAMDA",
+      "hukum": "Sentetik Damga Vergisi Kanunu m.8: Is sozlesmeleri, toplu is sozlesmeleri ve benzeri istihdam iliskisini duzenleyen kagitlar damga vergisinden istisnadir.",
+      "kalem": "Uzaktan calisma (remote) modelinde imzalanan elektronik is sozlesmesi"
+    },
+    {
+      "id": "Y08_tahdidi",
+      "cift_id": "Y08",
+      "tip": "tahdidi",
+      "dogru_cevap_etiketi": "KAPSAM_DISI",
+      "hukum": "Sentetik Emlak Vergisi Kanunu m.14: Asagida sayilan tasinmazlar emlak vergisinden muaftir: a) cami ve mescitler, b) kilise ve havralar.",
+      "kalem": "Kucuk bir dini cemaate ait, ibadet amaciyla kullanilan budist tapinagi"
+    },
+    {
+      "id": "Y08_tadadi",
+      "cift_id": "Y08",
+      "tip": "tadadi",
+      "dogru_cevap_etiketi": "KAPSAMDA",
+      "hukum": "Sentetik Emlak Vergisi Kanunu m.14: Cami ve mescitler, kilise ve havralar ve benzeri ibadethaneler emlak vergisinden muaftir.",
+      "kalem": "Kucuk bir dini cemaate ait, ibadet amaciyla kullanilan budist tapinagi"
+    },
+    {
+      "id": "Y09_tahdidi",
+      "cift_id": "Y09",
+      "tip": "tahdidi",
+      "dogru_cevap_etiketi": "KAPSAM_DISI",
+      "hukum": "Sentetik Ozel Tuketim Vergisi Kanunu m.19: Asagida sayilan tibbi cihazlar OTV'den istisnadir: a) MR cihazlari, b) tomografi cihazlari, c) roentgen cihazlari.",
+      "kalem": "Yeni nesil goruntuleme teknolojisi kullanan PET-BT (pozitron emisyon tomografisi) cihazi"
+    },
+    {
+      "id": "Y09_tadadi",
+      "cift_id": "Y09",
+      "tip": "tadadi",
+      "dogru_cevap_etiketi": "KAPSAMDA",
+      "hukum": "Sentetik Ozel Tuketim Vergisi Kanunu m.19: MR cihazlari, tomografi cihazlari, roentgen cihazlari ve benzeri tibbi goruntuleme cihazlari OTV'den istisnadir.",
+      "kalem": "Yeni nesil goruntuleme teknolojisi kullanan PET-BT (pozitron emisyon tomografisi) cihazi"
+    },
+    {
+      "id": "Y10_tahdidi",
+      "cift_id": "Y10",
+      "tip": "tahdidi",
+      "dogru_cevap_etiketi": "KAPSAM_DISI",
+      "hukum": "Sentetik Gelir Vergisi Kanunu m.23: Asagida sayilan sosyal yardimlar gelir vergisinden istisnadir: a) evlenme yardimi, b) dogum yardimi, c) olum yardimi.",
+      "kalem": "Isverence isciye yapilan evlat edinme yardimi"
+    },
+    {
+      "id": "Y10_tadadi",
+      "cift_id": "Y10",
+      "tip": "tadadi",
+      "dogru_cevap_etiketi": "KAPSAMDA",
+      "hukum": "Sentetik Gelir Vergisi Kanunu m.23: Evlenme yardimi, dogum yardimi, olum yardimi ve benzeri aile durumuna bagli sosyal yardimlar gelir vergisinden istisnadir.",
+      "kalem": "Isverence isciye yapilan evlat edinme yardimi"
     }
   ]
 }

@@ -1,29 +1,45 @@
 """
-llm_client.py — Çok sağlayıcılı LLM istemcisi (Anthropic / OpenAI / Gemini).
+llm_client.py -- Cok saglayicili LLM istemcisi
+(Anthropic / OpenAI / Gemini / DeepSeek / Mistral / Grok).
 
-Makale 1 (Çilingir, kavramsal eşleştirme) davranışsal testleri için üç
-model ailesine tek arayüzden erişim sağlar. README metodolojik not 6'nın
-("mimari iddia tek modelde doğrulanamaz") doğrudan altyapısıdır.
+DeepSeek, Mistral ve Grok, OpenAI SDK ile uyumlu chat.completions
+endpoint'i sundugu icin tek bir _openai_uyumlu_complete metodu
+uzerinden calisirlar (base_url farkli, istek/yanit semasi ayni).
 
-Ortam değişkenleri (anahtarlar.env dosyasından da okunur, bkz. runner.py):
-    ANTHROPIC_API_KEY   Anthropic modelleri için
-    OPENAI_API_KEY      OpenAI modelleri için
-    GEMINI_API_KEY      Google Gemini modelleri için
+Ortam degiskenleri (anahtarlar.env):
+    ANTHROPIC_API_KEY   Anthropic modelleri icin
+    OPENAI_API_KEY      OpenAI modelleri icin
+    GEMINI_API_KEY      Google Gemini modelleri icin
+    DEEPSEEK_API_KEY    DeepSeek modelleri icin
+    MISTRAL_API_KEY     Mistral modelleri icin
+    XAI_API_KEY         Grok (xAI) modelleri icin
 
-Mock modu (--mock): API anahtarı olmadan boru hattının uçtan uca
-çalıştığını doğrulamak içindir; rastgele fakat deterministik
-(seed'li) yanıtlar üretir. Bilimsel sonuç ÜRETMEZ.
+Mock modu (--mock): API anahtari olmadan boru hattinin uctan uca
+calistigini dogrulamak icindir; rastgele fakat deterministik
+(seed'li) yanitlar uretir. Bilimsel sonuc URETMEZ.
 """
 
 from __future__ import annotations
 
 import hashlib
 import json
+import os
 import random
 import time
 from dataclasses import dataclass
 
-SAGLAYICILAR = ("anthropic", "openai", "gemini")
+SAGLAYICILAR = ("anthropic", "openai", "gemini", "deepseek", "grok", "kumru")
+
+# OpenAI SDK uyumlu (base_url farkli) saglayicilar
+_OPENAI_UYUMLU_BASE_URL = {
+    "deepseek": "https://api.deepseek.com",
+    "grok": "https://api.x.ai/v1",
+}
+
+_OPENAI_UYUMLU_ENV_KEY = {
+    "deepseek": "DEEPSEEK_API_KEY",
+    "grok": "XAI_API_KEY",
+}
 
 
 @dataclass
@@ -33,6 +49,23 @@ class LLMResponse:
     provider: str
     input_tokens: int = 0
     output_tokens: int = 0
+
+
+# Kumru gibi lokal HF modelleri process icinde bir kez yuklenir, tekrar
+# tekrar yuklenmez (GPU bellegi ve zaman tasarrufu icin).
+_LOKAL_MODEL_ONBELLEK: dict = {}
+
+
+def _kumru_yukle(model_adi: str):
+    if model_adi in _LOKAL_MODEL_ONBELLEK:
+        return _LOKAL_MODEL_ONBELLEK[model_adi]
+    from transformers import AutoModelForCausalLM, AutoTokenizer
+    import torch as _torch
+    tokenizer = AutoTokenizer.from_pretrained(model_adi)
+    model = AutoModelForCausalLM.from_pretrained(
+        model_adi, dtype=_torch.bfloat16, device_map="cuda")
+    _LOKAL_MODEL_ONBELLEK[model_adi] = (tokenizer, model)
+    return tokenizer, model
 
 
 class LLMClient:
@@ -58,14 +91,28 @@ class LLMClient:
         elif self.provider == "gemini":
             from google import genai
             self._client = genai.Client()         # GEMINI_API_KEY okur
+        elif self.provider in _OPENAI_UYUMLU_BASE_URL:
+            import openai
+            env_key = _OPENAI_UYUMLU_ENV_KEY[self.provider]
+            api_key = os.environ.get(env_key)
+            if not api_key:
+                raise RuntimeError(
+                    f"{env_key} tanimli degil (anahtarlar.env dosyasina ekleyin)")
+            self._client = openai.OpenAI(
+                api_key=api_key,
+                base_url=_OPENAI_UYUMLU_BASE_URL[self.provider],
+            )
+        elif self.provider == "kumru":
+            # Lokal HF modeli: API anahtari gerekmez, GPU'ya yuklenir.
+            self._tokenizer, self._client = _kumru_yukle(self.model)
         else:
             raise ValueError(
-                f"Bilinmeyen sağlayıcı: {self.provider} "
-                f"(geçerli: {', '.join(SAGLAYICILAR)})")
+                f"Bilinmeyen saglayici: {self.provider} "
+                f"(gecerli: {', '.join(SAGLAYICILAR)})")
 
     # ------------------------------------------------------------------
     def complete(self, system: str, user: str, retries: int = 3) -> LLMResponse:
-        """Tek turluk tamamlama. Üstel geri çekilme ile yeniden dener."""
+        """Tek turluk tamamlama. Ustel geri cekilme ile yeniden dener."""
         if self.mock:
             return self._mock_complete(system, user)
 
@@ -74,16 +121,18 @@ class LLMClient:
             try:
                 if self.provider == "anthropic":
                     return self._anthropic_complete(system, user)
-                if self.provider == "openai":
-                    return self._openai_complete(system, user)
-                return self._gemini_complete(system, user)
+                if self.provider == "gemini":
+                    return self._gemini_complete(system, user)
+                if self.provider == "kumru":
+                    return self._kumru_complete(system, user)
+                return self._openai_uyumlu_complete(system, user)
             except Exception as e:  # noqa: BLE001
                 last_err = e
                 wait = 2 ** attempt * 2
-                print(f"    [uyarı] API hatası ({e.__class__.__name__}), "
+                print(f"    [uyari] API hatasi ({e.__class__.__name__}), "
                       f"{wait}s bekleniyor... ({attempt + 1}/{retries})")
                 time.sleep(wait)
-        raise RuntimeError(f"API çağrısı {retries} denemede başarısız: {last_err}")
+        raise RuntimeError(f"API cagrisi {retries} denemede basarisiz: {last_err}")
 
     # ------------------------------------------------------------------
     def _anthropic_complete(self, system: str, user: str) -> LLMResponse:
@@ -101,7 +150,8 @@ class LLMClient:
             output_tokens=msg.usage.output_tokens,
         )
 
-    def _openai_complete(self, system: str, user: str) -> LLMResponse:
+    def _openai_uyumlu_complete(self, system: str, user: str) -> LLMResponse:
+        """openai, deepseek, mistral, grok icin ortak yol."""
         resp = self._client.chat.completions.create(
             model=self.model,
             temperature=self.temperature,
@@ -111,11 +161,12 @@ class LLMClient:
                 {"role": "user", "content": user},
             ],
         )
+        usage = getattr(resp, "usage", None)
         return LLMResponse(
             text=resp.choices[0].message.content or "",
-            model=self.model, provider="openai",
-            input_tokens=resp.usage.prompt_tokens,
-            output_tokens=resp.usage.completion_tokens,
+            model=self.model, provider=self.provider,
+            input_tokens=getattr(usage, "prompt_tokens", 0) or 0,
+            output_tokens=getattr(usage, "completion_tokens", 0) or 0,
         )
 
     def _gemini_complete(self, system: str, user: str) -> LLMResponse:
@@ -137,21 +188,45 @@ class LLMClient:
             output_tokens=getattr(um, "candidates_token_count", 0) or 0,
         )
 
+    def _kumru_complete(self, system: str, user: str) -> LLMResponse:
+        """Lokal Kumru modeli ile uretim (API cagrisi degil)."""
+        import torch
+        messages = [
+            {"role": "system", "content": system},
+            {"role": "user", "content": user},
+        ]
+        inputs = self._tokenizer.apply_chat_template(
+            messages, add_generation_prompt=True,
+            return_dict=True, return_tensors="pt").to("cuda")
+        with torch.no_grad():
+            out = self._client.generate(
+                **inputs, max_new_tokens=self.max_tokens,
+                temperature=self.temperature,
+                do_sample=self.temperature > 0,
+            )
+        girdi_uzunlugu = inputs["input_ids"].shape[1]
+        text = self._tokenizer.decode(
+            out[0][girdi_uzunlugu:], skip_special_tokens=True)
+        return LLMResponse(
+            text=text, model=self.model, provider="kumru",
+            input_tokens=girdi_uzunlugu,
+            output_tokens=out.shape[1] - girdi_uzunlugu,
+        )
+
     # ------------------------------------------------------------------
     def _mock_complete(self, system: str, user: str) -> LLMResponse:
-        """Deterministik sahte yanıt üretici (boru hattı testi için)."""
+        """Deterministik sahte yanit uretici (boru hatti testi icin)."""
         h = hashlib.sha256((system + user + str(self.mock_seed)).encode()).hexdigest()
         rng = random.Random(h)
 
         if "SADECE_JSON" in system:
-            # Yargıç (judge) çağrısı: şemaya uygun rastgele JSON döndür.
             if "KARAR_JSON" in system:
                 karar = rng.choice(["UYGULANIR", "UYGULANMAZ"])
-                out = json.dumps({"karar": karar, "gerekce": "mock gerekçe"},
+                out = json.dumps({"karar": karar, "gerekce": "mock gerekce"},
                                  ensure_ascii=False)
             elif "SECIM_JSON" in system:
                 out = json.dumps({"secim": rng.choice(["I1", "I2", "I3"]),
-                                  "gerekce": "mock gerekçe"}, ensure_ascii=False)
+                                  "gerekce": "mock gerekce"}, ensure_ascii=False)
             elif "KAPSAM_JSON" in system:
                 out = json.dumps({"karar": rng.choice(["KAPSAMDA", "KAPSAM_DISI"]),
                                   "gerekce": "mock"}, ensure_ascii=False)
@@ -159,11 +234,10 @@ class LLMClient:
                 out = json.dumps({"puan": round(rng.uniform(0, 1), 2),
                                   "gerekce": "mock"}, ensure_ascii=False)
             elif "GEREKCE_JSON" in system:
-                out = json.dumps({"amac_ifadesi": "mock amaç",
+                out = json.dumps({"amac_ifadesi": "mock amac",
                                   "kaynak_var": rng.choice([True, False])},
                                  ensure_ascii=False)
             elif "ortusme" in system:
-                # Deney 2 RAG yargıcı şeması
                 out = json.dumps({"ortusme": rng.choice([True, False]),
                                   "haluinasyon": rng.choice([True, False]),
                                   "gerekce": "mock"}, ensure_ascii=False)
@@ -171,24 +245,23 @@ class LLMClient:
                 out = json.dumps({"deger": rng.random()}, ensure_ascii=False)
         else:
             if "KAPSAM" in user.upper():
-                out = ("MOCK gerekçe.\nNİHAİ KARAR: "
-                       + rng.choice(["KAPSAMDA", "KAPSAM DIŞI"]))
+                out = ("MOCK gerekce.\nNIHAI KARAR: "
+                       + rng.choice(["KAPSAMDA", "KAPSAM DISI"]))
             else:
-                out = ("MOCK gerekçe.\nNİHAİ KARAR: "
-                       + rng.choice(["ŞART UYGULANIR", "ŞART UYGULANMAZ"]))
+                out = ("MOCK gerekce.\nNIHAI KARAR: "
+                       + rng.choice(["SART UYGULANIR", "SART UYGULANMAZ"]))
         return LLMResponse(text=out, model=self.model + "-mock",
                            provider=self.provider)
 
 
 def parse_json_response(text: str) -> dict:
-    """Modelin JSON yanıtını dayanıklı biçimde ayrıştırır."""
+    """Modelin JSON yanitini dayanikli bicimde ayristirir."""
     t = text.strip()
     if t.startswith("```"):
         t = t.split("```")[1]
         if t.startswith("json"):
             t = t[4:]
     t = t.strip()
-    # İlk { ile son } arasını al (giriş cümlesi kalıntılarına karşı)
     if "{" in t and "}" in t:
         t = t[t.index("{"): t.rindex("}") + 1]
     return json.loads(t)

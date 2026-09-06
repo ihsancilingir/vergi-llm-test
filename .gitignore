@@ -4,3 +4,16 @@ __pycache__/
 *.pyc
 
 ac�klama.txt
+
+# arac ve ortam
+.claude/
+.agents/
+.ipynb_checkpoints/
+.env
+*.key
+
+# yedek ve gecici
+*.bak
+LLMResponse
+dict
+açıklama.txt
