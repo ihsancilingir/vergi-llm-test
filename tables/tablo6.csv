@@ -1,0 +1,7 @@
+Ölçüt,Claude Sonnet 4.6 (yargıç),gpt-4o (yargıç)
+F = 1 → olgu alanı,%100 (30/30) [%89–%100],%100 (30/30) [%89–%100]
+Uzman etiketiyle uyum,%73 (110/150) [%66–%80],%72 (108/150) [%64–%79]
+Ortalama Ω,"0,622","0,690"
+Senaryo içi Ω std. sapması (ort.),"0,007","0,014"
+Uyumsuzluk dağılımı,YORUM_ALANI→YOGUN_INCELEME: 40,YORUM_ALANI→YOGUN_INCELEME: 40; SERBEST_ALAN→YORUM_ALANI: 2
+Serbest→olgu / olgu→serbest,0,0
