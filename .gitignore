@@ -1,20 +1,40 @@
+# API anahtarlari ve gizli ayarlar
 anahtarlar.env
+.env
+.env.*
+*.env
+.streamlit/secrets.toml
+*.key
+*.pem
+*.p12
+*.pfx
+
+# Paylasilabilir ayar sablonlari
+!.env.example
+!*.env.example
+
+# Deney ciktilari
 results/
+
+# Python onbellegi ve sanal ortamlar
 __pycache__/
 *.pyc
+.venv/
+venv/
 
-ac�klama.txt
-
-# arac ve ortam
+# Arac ve notebook dosyalari
 .claude/
 .agents/
 .ipynb_checkpoints/
-.env
-*.key
 
-# yedek ve gecici
+# Yerel notlar
+acıklama.txt
+açıklama.txt
+
+# Yedek ve gecici dosyalar
 *.bak
+*.tmp
+*.swp
+~$*
 LLMResponse
 dict
-açıklama.txt
-.ipynb_checkpoints/
